@@ -1,0 +1,34 @@
+April 05, 2018
+
+As you can see, it asks the victim to double click the blue icon to enable a “clear view.” Once clicked, it extracts an exe file from the embedded object into the system’s temporary folder and runs it.  In this case, the exe file is called “POM.exe”
+
+In figure 3 we can see that the malware is written in the MS Visual Basic language. Based on my analysis, it’s a kind of installer program. When it runs, it drops two files: “filename.exe” and “filename.vbs” into the “%temp%\subfolder”. It then exits the process after executing the file “filename.vbs”.  Below, in figure 4, is the content of “filename.vbs”.
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce\Registry Key Name
+
+keyName: "Registry Key Name"
+valueName: "C:\User\...\AppData\Local\Temp\subfolder\filename.vbs"
+keyType: "REG_SZ"
+
+To make it run automatically when the system starts, it adds itself (runs filename.vbs) to the system registry as a startup program. It then runs “%temp%\filename.exe”.  
+
+
+IoC:
+
+Sample SHA256:
+
+PPSATV.doc
+
+13E9CDE3F15E642E754AAE63259BB79ED08D1ACDA93A3244862399C44703C007
+
+POM.exe
+
+A859765D990F1216F65A8319DBFE52DBA7F24731FBD2672D8D7200CC236863D7
+
+filename.exe
+
+B4F81D9D74E010714CD227D3106B5E70928D495E3FD54F535B665F25EB581D3A
+
+Random name daemon program
+
+C2CAE82E01D954E3A50FEAEBCD3F75DE7416A851EA855D6F0E8AAAC84A507CA3

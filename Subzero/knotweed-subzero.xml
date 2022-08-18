@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.knotweed.subzero:def:20220727" version="1">
+      <metadata>
+        <title>Malware{Subzero-20220727}</title>
+        <description>KNOTWEED is a private-sector offensive actor (PSOA). They developed a malware called Subzero which was used in these attacks. KNOTWEED is an Austria-based PSOA named DSIRF. However, multiple news reports have linked DSIRF to the development and attempted sale of a malware toolset called Subzero. MSTIC found the Subzero malware being deployed through a variety of methods, including 0-day exploits in Windows and Adobe Reader, in 2021 and 2022</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2022-22047" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2022-22047" source="NVD"/>
+        <reference ref_id="MSTIC" ref_url="https://www.microsoft.com/security/blog/2022/07/27/untangling-knotweed-european-private-sector-offensive-actor-using-0-day-exploits/" source="ThreatReport"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="Check for file hashes of Jumplump binaries in C:\Windows\System32\spool\drivers\color\" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271001"/>
+          <criterion comment="Check WDigest for UseLogonCredential key value" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271002"/>
+          <criterion comment="Check COM keys hijack with class id ddc05a5a-351a-4e06-8eaf-54ec1bc2dcea in registry" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271003"/>
+          <criterion comment="Check COM keys hijack with class id 1f486a52-3cb1-48fd-8f50-b8dc300d9f9d in registry" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271004"/>
+          <criterion comment="Check COM keys hijack with class id 4590f811-1d3a-11d0-891f-00aa004b2e24 in registry" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271005"/>
+          <criterion comment="Check COM keys hijack with class id 4de225bf-cf59-4cfc-85f7-68b90f185355 in registry" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271006"/>
+          <criterion comment="Check COM keys hijack with class id F56F6FDD-AA9D-4618-A949-C1B91AF43B1A in registry" test_ref="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271007"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <filehash58_test check="at least one" check_existence="at_least_one_exists" comment="Check for file hashes of Jumplump binaries in C:\Windows\System32\spool\drivers\color\" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271001"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271001"/>
+    </filehash58_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check WDigest for UseLogonCredential key value" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271002"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271002"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack with class id ddc05a5a-351a-4e06-8eaf-54ec1bc2dcea in registry" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271003"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271003"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack with class id 1f486a52-3cb1-48fd-8f50-b8dc300d9f9d in registry" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271004"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271004"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack with class id 4590f811-1d3a-11d0-891f-00aa004b2e24 in registry" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271005"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271005"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack with class id 4de225bf-cf59-4cfc-85f7-68b90f185355 in registry" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271006" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271006"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271006"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack with class id F56F6FDD-AA9D-4618-A949-C1B91AF43B1A in registry" id="oval:org.loginsoft.malware.knotweed.subzero:tst:202207271007" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271007"/>
+      <state state_ref="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271007"/>
+    </registry_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <filehash58_object comment="Object for file 'Jumplump'" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path>C:\Windows\System32\spool\drivers\color</path>
+      <filename operation="pattern match">.*</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+    <registry_object comment="Object for UseLogonCredential registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest</key>
+      <name>UseLogonCredential</name>
+    </registry_object>
+    <registry_object comment="Object for COM hijacked class id ddc05a5a-351a-4e06-8eaf-54ec1bc2dcea registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>software\classes\clsid\{ddc05a5a-351a-4e06-8eaf-54ec1bc2dcea}\InprocServer32</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for COM hijacked class id 1f486a52-3cb1-48fd-8f50-b8dc300d9f9d registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>software\classes\clsid\{1f486a52-3cb1-48fd-8f50-b8dc300d9f9d}\InprocServer32</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for COM hijacked class id 4590f811-1d3a-11d0-891f-00aa004b2e24 registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>software\classes\clsid\{4590f811-1d3a-11d0-891f-00aa004b2e24}\InprocServer32</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for COM hijacked class id 4de225bf-cf59-4cfc-85f7-68b90f185355 registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271006" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>software\classes\clsid\{4de225bf-cf59-4cfc-85f7-68b90f185355}\InprocServer32</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for COM hijacked class id F56F6FDD-AA9D-4618-A949-C1B91AF43B1A registry key" id="oval:org.loginsoft.malware.knotweed.subzero:obj:202207271007" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>software\classes\clsid\{F56F6FDD-AA9D-4618-A949-C1B91AF43B1A}\InprocServer32</key>
+      <name/>
+    </registry_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <filehash58_state comment="checking for sha256 hashes" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash var_check="at least one" var_ref="oval:org.loginsoft.malware.knotweed.subzero:var:202207271002"/>
+    </filehash58_state>
+    <registry_state comment="State for UseLogonCredential Registry key value check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value>1</value>
+    </registry_state>
+    <registry_state comment="State for COM hijacked Registry key values check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive not equal">%SystemRoot%\System32\ApplicationFrame.dll</value>
+    </registry_state>
+    <registry_state comment="State for COM hijacked Registry key values check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive not equal">%SystemRoot%\system32\propsys.dll</value>
+    </registry_state>
+    <registry_state comment="State for COM hijacked Registry key values check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive not equal">%SystemRoot%\system32\wbem\wbemprox.dll</value>
+    </registry_state>
+    <registry_state comment="State for COM hijacked Registry key values check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271006" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive not equal">%SystemRoot%\system32\wbem\wmiprvsd.dll</value>
+    </registry_state>
+    <registry_state comment="State for COM hijacked Registry key values check" id="oval:org.loginsoft.malware.knotweed.subzero:ste:202207271007" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="case insensitive not equal">%SystemRoot%\System32\Actioncenter.dll</value>
+    </registry_state>
+  </states>
+  <variables>
+    <constant_variable comment="variable stores sha256 hashes of files" datatype="string" id="oval:org.loginsoft.malware.knotweed.subzero:var:202207271002" version="1">
+      <value>441a3810b9e89bae12eea285a63f92e98181e9fb9efd6c57ef6d265435484964</value>
+      <value>cbae79f66f724e0fe1705d6b5db3cc8a4e89f6bdf4c37004aa1d45eeab26e84b</value>
+      <value>fd6515a71530b8329e2c0104d0866c5c6f87546d4b44cc17bbb03e64663b11fc</value>
+      <value>5d169e083faa73f2920c8593fb95f599dad93d34a6aa2b0f794be978e44c8206</value>
+      <value>7f29b69eb1af1cc6c1998bad980640bfe779525fd5bb775bc36a0ce3789a8bfc</value>
+      <value>02a59fe2c94151a08d75a692b550e66a8738eb47f0001234c600b562bf8c227d</value>
+      <value>7f84bf6a016ca15e654fb5ebc36fd7407cb32c69a0335a32bfc36cb91e36184d</value>
+      <value>afab2e77dc14831f1719e746042063a8ec107de0e9730249d5681d07f598e5ec</value>
+      <value>894138dfeee756e366c65a197b4dbef8816406bc32697fac6621601debe17d53</value>
+      <value>4611340fdade4e36f074f75294194b64dcf2ec0db00f3d958956b4b0d6586431</value>
+    </constant_variable>
+  </variables>
+</oval_definitions>

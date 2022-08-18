@@ -1,0 +1,30 @@
+Zero-day remote code execution bug in Microsoft office (CVE-2022-30190).
+
+REF: https://decoded.avast.io/threatintel/outbreak-of-follina-in-australia/
+
+
+1. threat actor hosting malicious payloads on 'Australian VOIP telecommunication provider' with a presence in 'South Pacific nation of Palau'.
+2. Targets in 'palau' were sent malicious documents when opened causes the victim computer to contact provider website, then download and execute the malware.
+
+
+Observations:
+1. Threat is complex multi-stage operation utilizing 'LOLBAS'. It allowed to initialize the attack using 'Microsoft Support Diagnostic Tool'.
+2. This Vulnerability lets threat actor to run malicious code without even downloading.
+
+First Stage:
+The compromised website 'palau.voipstelecom.com.au' is hosting a 'robots.txt' which is a executable file. Using 'Diagnostic troubleshooting wizard (msdt.exe) the 'robots' file will be downloaded and saved as 'Sihost.exe' and executed.
+
+Second Stage:
+Renamed robots.txt i.e Sihost.exe was executed by msdt.exe. It downloades a loader with the hash 'b63fbf80351b3480c62a6a5158334ec8e91fecd057f6c19e4b4dd3febaa9d447'. This loader will be executed and will download a file favicon.svg from same web server. 
+
+Third Stage:
+The downloaded favicon.svg file is encrypted. After decryption, it will downloaded Fourth stage of attack.
+
+Fourth Stage:
+The downloaded named as 'Sevntx64.exe' and 'Sevntx.lnk', will be then executed on victim machine. While executing it loads '66kb' shellcode from 'AsyncRat' malware family.
+
+Final Stage:
+When executable is loaded, Machine will be fully compromised with AsyncRat, this trojan will communicate with server 'palau[.]voipstelecom[.]com[.]au' on port '443'.
+
+AsyncRat SHA256:  aba9b566dc23169414cb6927ab5368b590529202df41bfd5dded9f7e62b91479
+

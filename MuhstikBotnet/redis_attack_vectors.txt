@@ -1,0 +1,37 @@
+In January 2022, A vulnerability in Redis (Debian-specific) that allows Lua sandbox escape and execute arbitrary code on the host. This vulnerability existed because the Lua library in some Debian/Ubuntu packages is provided as a dynamic library (Ubuntu Bionic and Trusty are not affected). 
+
+When the Lua interpreter initializes, the “package” variable is automatically populated, and that in turn permitted access to arbitrary Lua functionality.  
+
+ For instance, we can use “package.loadlib”  to load the modules from “liblua” library, then use this module to execute commands.  
+
+ The following is a proof of concept(https://github.com/vulhub/vulhub/tree/master/redis/CVE-2022-0543) on how to exploit this vulnerability. 
+
+ Attack:
+ ------
+ 1. The attack attempts to download “russia.sh” using wget or curl from “106[.]246.224.219”. It saves it as “/tmp/russ” and executes it. 
+ 2. This script (russia.sh) will further download "pty1"..."pty10" to temp directory (/tmp) from "160[.]16.58.163" and execute linux binaries. These binaries are identified to be variants of Muhstik bot. This bot connects to an IRC server to receive commands which include the following:  
+
+    Download files  
+    Shell commands  
+    Flood attacks  
+    SSH brute force 
+
+Indicators of Compromise: 
+------------------------
+
+ 4817893f8e724cbc5186e17f46d316223b7683dcbc9643e364b5913f8d2a9197  pty1 46389c117c5f41b60e10f965b3674b3b77189b504b0aeb5c2da67adf55a7129f  pty10 95d1fca8bea30d9629fdf05e6ba0fc6195eb0a86f99ea021b17cb8823db9d78b  pty2 7d3855bb09f2f6111d6c71e06e1e6b06dd47b1dade49af0235b220966c2f5be3  pty3 16b4093813e2923e9ee70b888f0d50f972ac607253b00f25e4be44993d263bd2  pty4 28443c0a9bfd8a12c12a2aad3cc97d2e8998a9d8825fcf3643d46012f18713f0  pty5 36a2ac597030f3f3425153f5933adc3ca62259c35f687fde5587b8f5466d7d54  russia.sh
+
+ Download IP
+
+106[.]246.224.219
+160[.]16.58.163
+
+Attacker IP 
+
+104[.]236.150.159
+170[.]210.45.163
+146[.]185.136.187
+178[.]62.69.4
+191[.]232.38.25
+79[.]172.212.132
+221[.]120.103.253

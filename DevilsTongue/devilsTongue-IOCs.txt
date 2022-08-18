@@ -1,0 +1,61 @@
+Good Indicator
+----------------
+C:\Windows\System32\drivers\HW.sys    6a4875ae86131a594019dec4abd46ac6ba47e57a88287b814d07d929858fe3e5
+
+Domains
+---------------
+bad-shop[.]net
+bestcarent[.]org
+core-update[.]com
+datanalytic[.]org
+expertglobal[.]org
+only-music[.]net
+popsonglist[.]com
+querylight[.]net
+smartstand[.]org
+stylishblock[.]com
+webs-update[.]com
+
+
+Files
+------------------
+C:\Windows\System32\    migration    \netiopmig.dll
+C:\Windows\System32\    migration    \sppvmig.dll
+C:\Windows\System32\    migration    \spvmig.dll
+C:\Windows\System32\    ime\imejp    \imjpueact.dll
+C:\Windows\System32\    ime\imejp    \imjpuexp.dll
+C:\Windows\System32\    ime\imetc    \imtcprot.dll
+C:\Windows\System32\    ime\shared   \imccphd.dll
+C:\Windows\System32\    ime\shared   \imebrokev.dll
+C:\Windows\System32\    ime\shared   \imecpmeid.dll
+C:\Windows\System32\    ime\shared   \imepadsvd.dll
+C:\Windows\System32\    migration    \imjprmig.dll
+C:\Windows\System32\    wbem         \dmwmibridgeprov132.dll
+C:\Windows\System32\    wbem         \esscli32.dll
+C:\Windows\System32\    wbem         \netdacim32.dll
+C:\Windows\System32\    wbem         \netpeerdistcim32.dll
+C:\Windows\System32\    wbem         \viewprov32.dll
+C:\Windows\System32\    wbem         \vsswmi32.dll
+C:\Windows\System32\    wbem         \wbemcore32.dll
+C:\Windows\System32\    wbem         \wbemdisp32.dll
+C:\Windows\System32\    wbem         \wbemsvc32.dll
+C:\Windows\System32\    wbem         \wfascim32.dll
+C:\Windows\System32\    wbem         \win32_encryptablevolume32.dll
+C:\Windows\System32\    wbem         \wmiaprpl32.dll
+C:\Windows\System32\    drivers      \HW.sys
+C:\Windows\System32\    drivers      \HW.sys.dat
+
+
+Hijacked classes
+--------------------
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{4590F811-1D3A-11D0-891F-00AA004B2E24}\InprocServer32
+	- legitimate default value: %systemroot%\system32\wbem\wbemprox.dll
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{4FA18276-912A-11D1-AD9B-00C04FD8FDFF}\InprocServer32
+	- legitimate default value: %systemroot%\system32\wbem\wbemcore.dll
+
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{7C857801-7381-11CF-884D-00AA004B2E24}\InProcServer32
+	- legitimate default value: %systemroot%\system32\wbem\wbemsvc.dll
+HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{CF4CC405-E2C5-4DDD-B3CE-5E7582D8C9FA}\InprocServer32
+	- legitimate default value: %systemroot%\system32\wbem\wmiutils.dll

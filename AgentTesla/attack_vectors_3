@@ -1,0 +1,18 @@
+August 10, 2020
+
+For example, as we see in sample 4007480b1a8859415bc011e4981f49ce2ff7a7dd7e883fe70d9f304cbfefedea, a copy of RegAsm.exe (dropped into %temp%) is subsequently injected into
+
+
+
+ Persistence is typically achieved via registry key entry or scheduled task.
+
+For example, in sample 7ec2b40879d6be8a8c6b6ba239d5ae547604ad2605de0d2501a4cca25915afa1 a copy of the executable file is dropped into ~AppDataLocalTemp, and targeted w/ the following syntax to generate the persistent task:
+
+In the sample b74bcc77983d587207c127129cfda146644f6a4078e9306f47ab665a86f4ad13, we see an example of establishing persistence via the registry. Upon launch, an instance of the malware is dropped into %temp% as a hidden file, in a hidden folder.
+
+/c copy "C:/Users/admin1/Desktop/tes_10.exe" "%temp%FolderNname.exe" /Y
+
+The following command is then used to create the Autorun registry key:
+
+/c reg add "HKCUSoftwareMicrosoftWindows NTCurrentVersionWindows" /v Load /t REG_SZ /d "%temp%FolderNname.exe.lnk" /f
+

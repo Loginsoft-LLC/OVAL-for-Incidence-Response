@@ -1,0 +1,10 @@
+1. Implementing Watering Hole Attack on compromised website used by emplooyes.
+2. Attacking with XSS to inject malicious javascript file and gather information.
+3. Gathered information contains profile of victim's browser with 50 datapoints, they are: victim’s language, timezone, screen information, device type, browser plugins, referrer, device memory, cookie functionality, and more.
+4. Its collected to select only targeted victims. It is checked with exploit server.
+5. It sets an encrypted AES-256-CBC channel on top of TLS with RSA-2048 key to exchange zero-day exploit.
+6. In this exploit they used signed kernel driver(HW.sys) through BYOVD fashion and loaded it from C:\Windows\System32\drivers\HW.sys.
+7. This driver has already some zero-day exploits.
+8. It is exploited through Input output controller(IOCTL). 0x9C40648C can be abused for reading physical memory and 0x9C40A4CC for writing physical memory(Mitigation for this can be blocklisting the driver).
+
+

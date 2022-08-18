@@ -1,0 +1,35 @@
+Ref:
+
+https://www.mandiant.com/resources/formbook-malware-distribution-campaigns
+
+Installation
+
+The FormBook malware copies itself to a new location. The malware first chooses one of the following strings to use as a prefix for its installed filename:
+
+ms, win, gdi, mfc, vga, igfx, user, help, config, update, regsvc, chkdsk, systray, audiodg, certmgr, autochk, taskhost, colorcpl, services, IconCache, ThumbCache, Cookies
+
+It then generates two to five random characters and appends those to the chosen string above 
+
+followed by one of the following file extensions:
+
+    .exe, .com, .scr, .pif, .cmd, .bat
+
+If the malware is running with elevated privileges, it copies itself to one of the following directories:
+
+    %ProgramFiles% 
+    %CommonProgramFiles%
+
+If running with normal privileges, it copies itself to one of the following directories:
+
+    %USERPROFILE%
+    %APPDATA%
+    %TEMP%
+
+Persistence
+
+The malware uses the same aforementioned string list with a random string to create a prefix, appends one to five random characters, and uses this value as the registry value name.
+
+The malware configures persistence to one of the following two locations depending on its privileges:
+
+    (HKCU|HKLM)\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+    (HKCU|HKLM)\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run

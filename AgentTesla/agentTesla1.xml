@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.agent_tesla:def:20170728" version="1">
+      <metadata>
+        <title>Malware{AgentTesla-20170728}</title>
+        <description>Agent Tesla is Often delivered as a malicious attachment in phishing emails. It is capable of stealing data from mail clients, web browsers, and File Transfer Protocol (FTP) servers. This malware can also capture screenshots, videos, and Windows clipboard data. Agent Tesla is available online for purchase under the guise of being a legitimate tool for managing your personal computer. Its developers continue to add new functionality, including obfuscation capabilities and targeting additional applications for credential stealing.</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2017-11882" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2017-11882" source="NVD"/>
+        <reference ref_id="CVE-2017-8570" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2017-8570" source="NVD"/>
+        <reference ref_id="FORTIGAURD" ref_url="https://www.fortinet.com/blog/threat-research/in-depth-analysis-of-net-malware-javaupdtr" source="ThreatReport"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="Check registry values of Keys created by Agent Tesla" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201707281001"/>
+          <criterion comment="Check for SHA-256 hash of 'javs.exe' file" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201707281002"/>
+          <criterion comment="Check for SHA-256 hash of 'JavaUpdtr.exe' file" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201707281003"/>
+          <criterion comment="Check for file 'screen.jpeg' in %appdata%/ScreenShot/" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201707281004"/>
+          <criterion comment="Check for load in registry key" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201707281005"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check registry values of Keys created by Agent Tesla" id="oval:org.loginsoft.malware.agent_tesla:tst:201707281001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201707281001"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201707281001"/>
+    </registry_test>
+    <filehash58_test check="at least one" check_existence="at_least_one_exists" comment="Check for SHA-256 hash of 'javs.exe' file" id="oval:org.loginsoft.malware.agent_tesla:tst:201707281002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201707281002"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201707281002"/>
+    </filehash58_test>
+    <filehash58_test check="at least one" check_existence="at_least_one_exists" comment="Check for SHA-256 hash of 'JavaUpdtr.exe' file" id="oval:org.loginsoft.malware.agent_tesla:tst:201707281003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201707281003"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201707281002"/>
+    </filehash58_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for file 'screen.jpeg' in %appdata%/ScreenShot/" id="oval:org.loginsoft.malware.agent_tesla:tst:201707281004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201707281004"/>
+    </file_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check for load in registry key" id="oval:org.loginsoft.malware.agent_tesla:tst:201707281005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201707281005"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201707281003"/>
+    </registry_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <registry_object comment="Object for AccessVBOM,VBAWarning registry key" id="oval:org.loginsoft.malware.agent_tesla:obj:201707281001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key operation="pattern match">^Software\\Microsoft\\Office\\[\d\.]+\\Word\\Security$</key>
+      <name var_check="at least one" var_ref="oval:org.loginsoft.malware.agent_tesla:var:201707281001"/>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:org.loginsoft.windows:obj:1001" version="1" comment="The registry key holds the location of AppData">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Volatile Environment</key>
+      <name>APPDATA</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:org.loginsoft.windows:obj:1002" version="1" comment="The registry key holds the location of USERPROFILE">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Volatile Environment</key>
+      <name>USERPROFILE</name>
+    </registry_object>
+    <filehash58_object comment="Object for file 'javs.exe'" id="oval:org.loginsoft.malware.agent_tesla:obj:201707281002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path var_ref="oval:org.loginsoft.windows:var:1000"/>
+      <filename>javs.exe</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+    <filehash58_object comment="Object for file 'JavaUpdtr.exe'" id="oval:org.loginsoft.malware.agent_tesla:obj:201707281003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path var_ref="oval:org.loginsoft.malware.agent_tesla:var:201707281002"/>
+      <filename>JavaUpdtr.exe</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+    <file_object comment="Object for files 'screen.jpeg'" id="oval:org.loginsoft.malware.agent_tesla:obj:201707281004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path var_ref="oval:org.loginsoft.malware.agent_tesla:var:201707281003"/>
+      <filename>screen.jpeg</filename>
+    </file_object>
+    <registry_object comment="Object for load registry key" id="oval:org.loginsoft.malware.agent_tesla:obj:201707281005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Software\Microsoft\Windows NT\CurrentVersion\Windows</key>
+      <name>load</name>
+    </registry_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <registry_state comment="State for AccessVBOM,VBAWarning Registry key value check" id="oval:org.loginsoft.malware.agent_tesla:ste:201707281001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value>1</value>
+    </registry_state>
+    <filehash58_state comment="checking for Javs.exe,JavaUpdtr.exe sha256 hashes" id="oval:org.loginsoft.malware.agent_tesla:ste:201707281002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash operation="case insensitive equals">5D4E22BE32DCE5474B61E0DF305861F2C07B10DDADBC2DC937481C7D2B736C81</hash>
+    </filehash58_state>
+    <registry_state comment="State for default Registry key value check" id="oval:org.loginsoft.malware.agent_tesla:ste:201707281003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">[Jj]ava[Uu]pdtr\.exe</value>
+    </registry_state>
+  </states>
+  <variables>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.windows:var:1000" version="1" comment="variable to hold USERPROFILE%\AppData\Local\Temp Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1002"/>
+        <literal_component>\AppData\Local\Temp</literal_component>
+      </concat>
+    </local_variable>
+    <constant_variable comment="variable stores key names AccessVBOM,VBAWarning" datatype="string" id="oval:org.loginsoft.malware.agent_tesla:var:201707281001" version="1">
+      <value>AccessVBOM</value>
+      <value>VBAWarning</value>
+    </constant_variable>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.malware.agent_tesla:var:201707281002" version="1" comment="Path for JavaUpdtr.exe in AppData\Java Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1001"/>
+        <literal_component>\Java</literal_component>
+      </concat>
+    </local_variable>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.malware.agent_tesla:var:201707281003" version="1" comment="Path for screen.jpeg in AppData\ScreenShot Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1001"/>
+        <literal_component>\ScreenShot</literal_component>
+      </concat>
+    </local_variable>
+  </variables>
+</oval_definitions>

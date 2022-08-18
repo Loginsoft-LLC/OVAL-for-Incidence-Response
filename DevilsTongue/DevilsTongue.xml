@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.candiru.devils_tongue:def:20210715" version="1">
+      <metadata>
+        <title>Malware{DevilsTongue-20210715}</title>
+        <description>The DevilsTongue malware name are signs of compromise by SOURGUM’s malware given by Microsoft. Microsoft has identified over 100 victims of SOURGUM’s malware, and these victims are as geographically diverse as would be expected when varied government agencies are believed to be selecting the targets. Approximately half of the victims were found in Palestinian Authority, with most of the remaining victims located in Israel, Iran, Lebanon, Yemen, Spain (Catalonia), United Kingdom, Turkey, Armenia, and Singapore</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2021-31979" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-31979" source="NVD"/>
+        <reference ref_id="CVE-2021-33771" ref_url="https://nvd.nist.gov/vuln/detail/-CVE-2021-33771" source="NVD"/>
+        <reference ref_id="LSMRT_001" ref_url="https://www.microsoft.com/security/blog/2021/07/15/protecting-customers-from-a-private-sector-offensive-actor-using-0-day-exploits-and-devilstongue-malware/" source="ThreatReport"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="Check COM keys hijack in registry" test_ref="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151000"/>   
+          <criterion comment="Check for DevilsTongue configuration files pac.dat,TupTask.dat,startwus.dat in system32\config" test_ref="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151001"/>
+          <criterion comment="Check for hijacked DLLs if those are not signed by Microsoft" test_ref="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151002"/>
+          <criterion comment="check for suspicious configuration file 'WimBootConfigurations'" test_ref="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151003"/>
+          <criterion comment="physmem.sys hash matches with 17614fdee3b89272e99758983b99111cbb1b312c then it is an indicator of Devils Tongue" test_ref="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151004"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check COM keys hijack in registry" id="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151000"/>
+      <state state_ref="oval:org.loginsoft.malware.candiru.devils_tongue:ste:202107151000"/>
+    </registry_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check file path C:\Windows\system32\config\*\ServiceState\Recovery\pac.dat" id="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151001"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for hijacked DLLs if those are not signed by Microsoft" id="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151002"/>
+      <state state_ref="oval:org.loginsoft.malware.candiru.devils_tongue:ste:202107151001"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check suspicious configuration file" id="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151003"/>
+    </file_test>
+    <filehash58_test check="all" check_existence="at_least_one_exists" comment="Check for physmem hash" id="oval:org.loginsoft.malware.candiru.devils_tongue:tst:202107151004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151004"/>
+      <state state_ref="oval:org.loginsoft.malware.candiru.devils_tongue:ste:202107151002"/>
+    </filehash58_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <registry_object comment="Object for The registry key" id="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key var_check="at least one" var_ref="oval:org.loginsoft.malware.candiru.devils_tongue:var:202107151000"/>
+      <name/>
+    </registry_object>
+    <file_object comment="check for ServiceState\Recovery\pac.dat" id="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors max_depth="-1" recurse_direction="down"/>
+      <path>C:\Windows\system32\config</path>
+      <filename var_check="at least one" var_ref="oval:org.loginsoft.malware.candiru.devils_tongue:var:202107151001"/>
+    </file_object>
+    <file_object comment="Object for The file path" id="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors max_depth="-1" recurse_direction="down"/>
+      <path>C:\Windows\System32\IME\</path>
+      <filename operation="pattern match">^im.*.dll$</filename>
+    </file_object>
+    <file_object comment="Object for The file path" id="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors max_depth="-1" recurse_direction="down"/>
+      <path>C:\Windows\System32\IME</path>
+      <filename>WimBootConfigurations.ini</filename>
+    </file_object>
+    <filehash58_object comment="check file hash" id="oval:org.loginsoft.malware.candiru.devils_tongue:obj:202107151004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <behaviors max_depth="-1" recurse_direction="down"/>
+      <path>C:\Windows\system32\drivers\</path>
+      <filename operation="pattern match">^physmem.*</filename>
+      <hash_type>SHA-1</hash_type>
+    </filehash58_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <registry_state comment="State for Registry key check" id="oval:org.loginsoft.malware.candiru.devils_tongue:ste:202107151000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">.*\\system32\\ime.*</value>
+    </registry_state>
+    <file_state comment="check for unsigned DLL" id="oval:org.loginsoft.malware.candiru.devils_tongue:ste:202107151001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <company operation="not equal">Microsoft Corporation</company>
+    </file_state>
+    <filehash58_state comment="checking for physmem sha1 hash" id="oval:org.mitre.oval.test:ste:202107151002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash>17614fdee3b89272e99758983b99111cbb1b312c</hash>
+    </filehash58_state>
+  </states>
+  <variables>
+    <constant_variable comment="COM keys being hijacked for persistence" datatype="string" id="oval:org.loginsoft.malware.candiru.devils_tongue:var:202107151000" version="1">
+      <value>software\classes\clsid\{CF4CC405-E2C5-4DDD-B3CE-5E7582D8C9FA}\InprocServer32</value>
+      <value>software\classes\clsid\{7c857801-7381-11cf-884d-00aa004b2e24}\InprocServer32</value>
+    </constant_variable>
+    <constant_variable comment="Malicious dat files in system32\config\.? folder" datatype="string" id="oval:org.loginsoft.malware.candiru.devils_tongue:var:202107151001" version="1">
+      <value>pac.dat</value>
+      <value>TupTask.dat</value>
+      <value>startwus.dat</value>
+    </constant_variable>
+  </variables>
+</oval_definitions>

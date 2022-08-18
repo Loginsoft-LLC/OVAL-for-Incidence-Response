@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.agent_tesla:def:20180405" version="1">
+      <metadata>
+        <title>Malware{AgentTesla-20180405}</title>
+        <description>The New variant of Agent Tesla is seen exploiting. Often it is delivered as a malicious attachment in phishing emails. It's been observed is spreading word document.</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2017-11882" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2017-11882" source="NVD"/>
+        <reference ref_id="CVE-2017-8570" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2017-8570" source="NVD"/>
+        <reference ref_id="FORTIGAURD" ref_url="https://www.fortinet.com/blog/threat-research/analysis-of-new-agent-tesla-spyware-variant" source="ThreatReport"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="Check registry values of Keys created by Agent Tesla" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201804051001"/>
+          <criterion comment="Check for SHA-256 hash of 'filename.exe' file" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201804051002"/>
+          <criterion comment="Check for file 'filename.vbs' in %USERPROFILE%\AppData\Local\Temp\subfolder" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201804051003"/>
+          <criterion comment="Check for SHA-256 hash of 'POM.exe' file" test_ref="oval:org.loginsoft.malware.agent_tesla:tst:201804051004"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check registry values of Keys created by Agent Tesla" id="oval:org.loginsoft.malware.agent_tesla:tst:201804051001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201804051001"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201804051001"/>
+    </registry_test>
+    <filehash58_test check="at least one" check_existence="at_least_one_exists" comment="Check for SHA-256 hash of 'filename.exe' file" id="oval:org.loginsoft.malware.agent_tesla:tst:201804051002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201804051002"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201804051002"/>
+    </filehash58_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for file 'filename.vbs' in %USERPROFILE%\AppData\Local\Temp\subfolder" id="oval:org.loginsoft.malware.agent_tesla:tst:201804051003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201804051003"/>
+    </file_test>
+    <filehash58_test check="at least one" check_existence="at_least_one_exists" comment="Check for SHA-256 hash of 'POM.exe' file" id="oval:org.loginsoft.malware.agent_tesla:tst:201804051004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.agent_tesla:obj:201804051004"/>
+      <state state_ref="oval:org.loginsoft.malware.agent_tesla:ste:201804051003"/>
+    </filehash58_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <registry_object comment="Object for 'Registry Key Name' registry key" id="oval:org.loginsoft.malware.agent_tesla:obj:201804051001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\RunOnce</key>
+      <name>Registry Key Name</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:org.loginsoft.windows:obj:1002" version="1" comment="The registry key holds the location of USERPROFILE">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Volatile Environment</key>
+      <name>USERPROFILE</name>
+    </registry_object>
+    <filehash58_object comment="Object for file 'filename.exe'" id="oval:org.loginsoft.malware.agent_tesla:obj:201804051002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path var_ref="oval:org.loginsoft.malware.agent_tesla:var:201804051000"/>
+      <filename>filename.exe</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+    <file_object comment="Object for files 'filename.vbs'" id="oval:org.loginsoft.malware.agent_tesla:obj:201804051003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path var_ref="oval:org.loginsoft.malware.agent_tesla:var:201804051000"/>
+      <filename>filename.vbs</filename>
+    </file_object>
+    <filehash58_object comment="Object for file 'POM.exe'" id="oval:org.loginsoft.malware.agent_tesla:obj:201804051004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path var_ref="oval:org.loginsoft.windows:var:1000"/>
+      <filename>POM.exe</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <registry_state comment="State for 'Registry key Name' value check" id="oval:org.loginsoft.malware.agent_tesla:ste:201804051001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">filename\.vbs</value>
+    </registry_state>
+    <filehash58_state comment="checking for filename.exe sha256 hashes" id="oval:org.loginsoft.malware.agent_tesla:ste:201804051002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash operation="case insensitive equals">B4F81D9D74E010714CD227D3106B5E70928D495E3FD54F535B665F25EB581D3A</hash>
+    </filehash58_state>
+    <filehash58_state comment="checking for POM.exe sha256 hashes" id="oval:org.loginsoft.malware.agent_tesla:ste:201804051003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash operation="case insensitive equals">A859765D990F1216F65A8319DBFE52DBA7F24731FBD2672D8D7200CC236863D7</hash>
+    </filehash58_state>
+  </states>
+  <variables>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.windows:var:1000" version="1" comment="variable to hold USERPROFILE%\AppData\Local\Temp Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1002"/>
+        <literal_component>\AppData\Local\Temp</literal_component>
+      </concat>
+    </local_variable>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.malware.agent_tesla:var:201804051000" version="1" comment="variable to hold USERPROFILE%\AppData\Local\Temp\subfolder Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1002"/>
+        <literal_component>\AppData\Local\Temp\subfolder</literal_component>
+      </concat>
+    </local_variable>
+  </variables>
+</oval_definitions>

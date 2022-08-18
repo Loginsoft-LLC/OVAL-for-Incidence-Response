@@ -1,0 +1,59 @@
+Vulnerability CVE-2021-26084 unauthenticated remote code execution (RCE).
+
+Muhstik botnet
+--------------
+1. Attack will download a file shell script, "conf2" from "192.31.52.174" and will execute it with bash.
+2. Above script will download the additional binaries "dk86" and "dk32" from "194.131.52.174" and save them in the temp (/tmp) directory.
+3. Additionally, it will download another script, "ldm" from "18.235.127.50".
+4. The "ldm" script is another bash script which has functions to download additional scripts and binaries via the following TOR links.  
+
+    https://bvprzqhoz7j2ltin[.]onion 
+    https://bvprzqhoz7j2ltin[.]tor2web.su/ 
+    https://bvprzqhoz7j2ltin[.]onion.ly/ 
+    https://bvprzqhoz7j2ltin[.]onion.ws/ 
+5. The "ldm" script also has a function to execute remote commands on hosts that it can access via SSH. It enumerates the users in the host via the “/home” directory. It enumerates the ssh keys by looking into the files: 
+
+     /home/*/.ssh/config 
+    /root/.ssh/config 
+    “*.pem” file in each home or root folder 
+    id_rsa* in each home or root folder 
+
+It also enumerates hosts by: 
+
+    Checking for “Hostname” in .ssh/config file 
+    Look into .bash_history file for commands with ssh or scp 
+    Look for IPs in .ssh/known/hosts 
+6. It uses all this information to execute a command to download shell scripts, "3sh" or "1sh" from "34.221.40.237".  
+7. "1sh" or "3sh" will download a version of the Muhstik bots, "pty1".."pty10" into "/var/run" or "/var/tmp" and the "ldm" script.
+
+Indicators of Compromise
+----------------------- 
+
+192[.]31.52.174
+34[.]221.40.237
+157[.]230.189.52
+18[.]235.127.50
+
+fe98548300025a46de1e06b94252af601a215b985dad31353596af3c1813efb0 *dk32
+0e574fd30e806fe4298b3cbccb8d1089454f42f52892f87554325cb352646049 *dk86
+39db1c54c3cc6ae73a09dd0a9e727873c84217e8f3f00e357785fba710f98129 *ldm
+a91dffe65048e39dfe1fd8da0b0dac11807718cdd5efedf4206a18af78779b0a *conf2
+
+http://194[.]31.52.174/dk86
+http://194[.]31.52.174/dk32
+http://34[.]221.40.237/.x/pty1
+http://34[.]221.40.237/.x/pty2
+http://34[.]221.40.237/.x/pty10
+http://34[.]221.40.237/.x/pty11
+http://34[.]221.40.237/.x/pty3
+http://34[.]221.40.237/.x/pty5
+http://34[.]221.40.237/.x/pty4
+http://34[.]221.40.237/.x/pty3
+http://34[.]221.40.237/.x/pty3
+http://157[.]230.189.52/wp-content/themes/twentynineteen/ldm
+http://18[.]235.127.50/ldm
+https://bvprzqhoz7j2ltin[.]onion
+https://bvprzqhoz7j2ltin[.]tor2web.su/
+https://bvprzqhoz7j2ltin[.]onion.ly/
+https://bvprzqhoz7j2ltin[.]onion.ws/
+

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:def:20211107" version="1">
+      <metadata>
+        <title>Malware{TiltedTemple-20211107}</title>
+        <description>APT actors(TiltedTemple) were actively exploiting newly identified vulnerabilities in a self-service password management and single sign-on solution known as ManageEngine ADSelfService Plus. The alert explained that malicious actors were observed deploying a specific webshell and other techniques to maintain persistence in victim environments</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2021-40539" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-40539" source="NVD"/>
+        <reference ref_id="UNIT42" ref_url="https://unit42.paloaltonetworks.com/manageengine-godzilla-nglite-kdcsponge/" source="ThreatReport"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="SHA-256 value of ME_ADAudit.exe hash matches with given hasesh" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071001"/>
+          <criterion comment="Check file path c:\ManageEngine\ADSelfService Plus\webapps\adssp\help\admin-guide\reports.jsp for Godzilla webshell" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071002"/>
+          <criterion comment="Check file path c:\ManageEngine\ADSelfService Plus\webapps\adssp\selfservice\assets\fonts\lato\lato-regular.jsp for Godzilla webshell" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071003"/>
+          <criterion comment="Check file path %APPDATA%\ADManager\ME_ADManager.exe" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071004"/>
+          <criterion comment="Check registry path Software\Microsoft\Windows\CurrentVersion\Run\ME_ADManager.exe for ME_ADManager.exe location" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071005"/>
+          <criterion comment="Check registry path Software\Microsoft\Windows\CurrentVersion\Run\ME_ADAudit.exe for ME_ADAudit.exe location" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071006"/>
+          <criterion comment="Check registry path Software\Microsoft\Windows\CurrentVersion\RunOnce\KDC Service for user64 location" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071007"/>
+          <criterion comment="Check filepath %ALLUSERSPROFILE%\Microsoft\Windows\Caches\system.dat" test_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071008"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <filehash58_test check="all" check_existence="at_least_one_exists" comment="SHA-256 value of ME_ADAudit.exe hash matches with given hasesh" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071001"/>
+      <state state_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071000"/>
+    </filehash58_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check file path c:\ManageEngine\ADSelfService Plus\webapps\adssp\help\admin-guide\reports.jsp for Godzilla webshell" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071002"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check file path c:\ManageEngine\ADSelfService Plus\webapps\adssp\selfservice\assets\fonts\lato\lato-regular.jsp" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071003"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check file path %APPDATA%\ADManager\ME_ADManager.exe" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071004"/>
+    </file_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check registry path Software\Microsoft\Windows\CurrentVersion\Run\ME_ADManager.exe" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071005"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check registry path Software\Microsoft\Windows\CurrentVersion\Run\ME_ADAudit.exe" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071006" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071008"/>
+    </registry_test>
+    <registry_test check="at least one" check_existence="at_least_one_exists" comment="Check registry path Software\Microsoft\Windows\CurrentVersion\RunOnce\KDC Service" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071007" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071011"/>
+    </registry_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check filepath %ALLUSERSPROFILE%\Microsoft\Windows\Caches\system.dat" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:tst:202111071008" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071014"/>
+    </file_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:org.loginsoft.windows:obj:1001" version="1" comment="The registry key holds the location of AppData">
+      <hive>HKEY_CURRENT_USER</hive>
+      <key>Volatile Environment</key>
+      <name>APPDATA</name>
+    </registry_object>
+    <filehash58_object comment="check file hash of ME_ADAudit.exe" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <path>C:\Windows\System32</path>
+      <filename>ME_ADAudit.exe</filename>
+      <hash_type>SHA-256</hash_type>
+    </filehash58_object>
+    <file_object comment="Object for reports.jsp file path" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path>c:\ManageEngine\ADSelfService Plus\webapps\adssp\help\admin-guide</path>
+      <filename>reports.jsp</filename>
+    </file_object>
+    <file_object comment="Object for lato-regular.jsp file path" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path>c:\ManageEngine\ADSelfService Plus\webapps\adssp\selfservice\assets\fonts\lato</path>
+      <filename>lato-regular.jsp</filename>
+    </file_object>
+    <file_object comment="Object for %APPDATA%\ADManager\ME_ADManager.exe file path" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071004" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path var_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:var:202111071000"/>
+      <filename>ME_ADManager.exe</filename>
+    </file_object>
+    <registry_object comment="Object for ME_ADManager.exe registry keys" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071005" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <oval-def:set>
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071006</oval-def:object_reference> 
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071007</oval-def:object_reference> 
+        <oval-def:filter action="include">oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071001</oval-def:filter>
+      </oval-def:set>
+    </registry_object>
+    <registry_object comment="Object for ME_ADManager.exe registry keys 32bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071006" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors windows_view="32_bit"/>
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\Run\ME_ADManager.exe</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for ME_ADManager.exe registry keys 64bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071007" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\Run\ME_ADManager.exe</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for ME_ADAudit.exe registry keys" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071008" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <oval-def:set>
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071009</oval-def:object_reference> 
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071010</oval-def:object_reference> 
+        <oval-def:filter action="include">oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071002</oval-def:filter>
+      </oval-def:set>
+    </registry_object>
+    <registry_object comment="Object for ME_ADAudit.exe registry keys 32bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071009" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors windows_view="32_bit"/>
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\Run\ME_ADAudit.exe</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for ME_ADAudit.exe registry keys 64bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071010" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\Run\ME_ADAudit.exe</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for KDC Service registry keys" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071011" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <oval-def:set>
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071012</oval-def:object_reference> 
+        <oval-def:object_reference>oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071013</oval-def:object_reference> 
+        <oval-def:filter action="include">oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071003</oval-def:filter>
+      </oval-def:set>
+    </registry_object>
+    <registry_object comment="Object for KDC Service registry keys 32bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071012" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <behaviors windows_view="32_bit"/>
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\RunOnce\KDC Service</key>
+      <name/>
+    </registry_object>
+    <registry_object comment="Object for KDC Service registry keys 64bit" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071013" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <hive>HKEY_LOCAL_MACHINE</hive>
+      <key>Software\Microsoft\Windows\CurrentVersion\RunOnce\KDC Service</key>
+      <name/>
+    </registry_object>
+    <file_object comment="Object for system.dat file path" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:obj:202111071014" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path>C:\ProgramData\Microsoft\Windows\Caches\</path>
+      <filename>system.dat</filename>
+    </file_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+    <filehash58_state comment="checking for ME_ADAudit.exe sha256 hash" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <hash var_check="at least one" var_ref="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:var:202111071001" />
+    </filehash58_state>
+    <registry_state comment="State for ME_ADManager keys default values" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">ME_ADManager</value>
+    </registry_state>
+    <registry_state comment="State for ME_ADAudit keys default values" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">ME_ADAudit</value>
+    </registry_state>
+    <registry_state comment="State for user64 keys default values" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:ste:202111071003" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <value operation="pattern match">user64</value>
+    </registry_state>
+  </states>
+  <variables>
+    <local_variable xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:var:202111071000" version="1" comment="Path for ADManager in AppData Windows" datatype="string">
+      <concat>
+        <object_component item_field="value" object_ref="oval:org.loginsoft.windows:obj:1001"/>
+        <literal_component>\ADManager</literal_component>
+      </concat>
+    </local_variable>
+    <constant_variable comment="SHA-256 values of ME_ADAudit.exe file(NGLite)" datatype="string" id="oval:org.loginsoft.malware.tilted_temple.manage_engine.ad_self_service_plus:var:202111071001" version="1">
+      <value>3da8d1bfb8192f43cf5d9247035aa4445381d2d26bed981662e3db34824c71fd</value>
+      <value>5b8c307c424e777972c0fa1322844d4d04e9eb200fe9532644888c4b6386d755</value>
+      <value>3f868ac52916ebb6f6186ac20b20903f63bc8e9c460e2418f2b032a207d8f21d</value>
+    </constant_variable>
+  </variables>
+</oval_definitions>

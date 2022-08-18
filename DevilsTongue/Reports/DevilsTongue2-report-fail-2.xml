@@ -1,0 +1,997 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<asset-report-collection xmlns:hpux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux" xmlns:xal2="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0" xmlns:sharepoint-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#sharepoint" xmlns:freebsd-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#freebsd" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:nxos-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#nxos" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:iosxe-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#iosxe" xmlns:freebsd-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#freebsd" xmlns:nxos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#nxos" xmlns:macos-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#macos" xmlns:unix-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#unix" xmlns:x-net-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#x-net" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:android-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#android" xmlns:cpe2="http://cpe.mitre.org/language/2.0" xmlns:tm="http://scap.nist.gov/schema/xml-dsig/1.0" xmlns:junos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#junos" xmlns:joval-meta="http://jovalcm.com/oval/metadata" xmlns:pixos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos" xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:catos-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#catos" xmlns:aix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#aix" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:ds="http://scap.nist.gov/schema/scap/source/1.2" xmlns:pan-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#panos" xmlns:xnl2="urn:oasis:names:tc:ciq:xsdschema:xNL:2.0" xmlns:asa-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#asa" xmlns:hpux-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#hpux" xmlns:x-net-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#x-protocols" xmlns:x-cmd-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#cmd" xmlns:netconf-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#netconf" xmlns:apple-ios-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#apple_ios" xmlns:apache-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#apache" xmlns:aix-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#aix" xmlns:esx-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#esx" xmlns:linux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:ocil-var="http://www.gocil.org/schemas/ocil/2.0/variables" xmlns:junos-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#junos" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:sce="http://open-scap.org/page/SCE_xccdf_stream" xmlns:solaris-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris" xmlns:catos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#catos" xmlns:android-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#android" xmlns:iosxe-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#iosxe" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:solaris-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#solaris" xmlns:asa-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#asa" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:rc="http://scap.nist.gov/schema/reporting-core/1.1" xmlns:oval-res="http://oval.mitre.org/XMLSchema/oval-results-5" xmlns:cdf12="http://checklists.nist.gov/xccdf/1.2" xmlns:apache-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#apache" xmlns:sce-res="http://open-scap.org/page/SCE_result_file" xmlns="http://scap.nist.gov/schema/asset-reporting-format/1.1" xmlns:x-cmd-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#cmd" xmlns:pan-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#panos" xmlns:cpe-dict-ext="http://scap.nist.gov/schema/cpe-extension/2.3" xmlns:ios-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#ios" xmlns:esx-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx" xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog" xmlns:oval-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5" xmlns:joval-diag="http://www.joval.org/schemas/scap/1.2/diagnostic" xmlns:win-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#windows" xmlns:sharepoint-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#sharepoint" xmlns:netconf-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#netconf" xmlns:ios-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios" xmlns:cce="http://cce.mitre.org" xmlns:ind-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#independent" xmlns:macos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos" xmlns:ai="http://scap.nist.gov/schema/asset-identification/1.1" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:con="http://scap.nist.gov/schema/scap/constructs/1.2" xmlns:cpe-dict="http://cpe.mitre.org/dictionary/2.0" xmlns:ocil-diag="http://www.gocil.org/schemas/ocil/2.0/diagnostic" xmlns:apple-ios-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#apple_ios" xmlns:pixos-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#pixos" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux-sc="http://oval.mitre.org/XMLSchema/oval-system-characteristics-5#linux">
+  <rc:relationships>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/specifications/arf/vocabulary/relationships/1.0#" type="ns82:isAbout" subject="report_0">
+      <rc:ref>asset_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/vocabulary/scap/relationships/1.0#" type="ns82:fromSource" subject="report_0">
+      <rc:ref>request_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/specifications/arf/vocabulary/relationships/1.0#" type="ns82:isAbout" subject="report_1">
+      <rc:ref>asset_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/vocabulary/scap/relationships/1.0#" type="ns82:fromSource" subject="report_1">
+      <rc:ref>request_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/vocabulary/scap/relationships/1.0#" type="ns82:checkContext" subject="report_1">
+      <rc:ref>report_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/specifications/arf/vocabulary/relationships/1.0#" type="ns82:isAbout" subject="report_2">
+      <rc:ref>asset_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/vocabulary/scap/relationships/1.0#" type="ns82:fromSource" subject="report_2">
+      <rc:ref>request_0</rc:ref>
+    </rc:relationship>
+    <rc:relationship xmlns:ns82="http://scap.nist.gov/vocabulary/scap/relationships/1.0#" type="ns82:checkContext" subject="report_2">
+      <rc:ref>report_0</rc:ref>
+    </rc:relationship>
+  </rc:relationships>
+  <report-requests>
+    <report-request id="request_0">
+      <content>
+        <ds:data-stream-collection id="scap_org.joval_collection_generated" schematron-version="1.3">
+          <ds:data-stream id="scap_org.joval_datastream_generated" use-case="OTHER" scap-version="1.3" timestamp="2022-08-05T00:30:12.618+05:30">
+            <ds:dictionaries>
+              <ds:component-ref id="scap_org.joval_cref_generator-cpe-dictionary.xml" xlink:href="#scap_org.joval_comp_generator-cpe-dictionary.xml">
+                <cat:catalog>
+                  <cat:uri name="generator-cpe-oval.xml" uri="#scap_org.joval_cref_generator-cpe-oval.xml"/>
+                </cat:catalog>
+              </ds:component-ref>
+            </ds:dictionaries>
+            <ds:checklists>
+              <ds:component-ref id="scap_org.joval_cref_xccdf.xml" xlink:href="#scap_org.joval_comp_xccdf.xml">
+                <cat:catalog>
+                  <cat:uri name="DevilsTongue2.xml" uri="#scap_org.joval_cref_DevilsTongue2.xml"/>
+                </cat:catalog>
+              </ds:component-ref>
+            </ds:checklists>
+            <ds:checks>
+              <ds:component-ref id="scap_org.joval_cref_generator-cpe-oval.xml" xlink:href="#scap_org.joval_comp_generator-cpe-oval.xml"/>
+              <ds:component-ref id="scap_org.joval_cref_DevilsTongue2.xml" xlink:href="#scap_org.joval_comp_DevilsTongue2.xml"/>
+            </ds:checks>
+          </ds:data-stream>
+          <ds:component id="scap_org.joval_comp_xccdf.xml" timestamp="2022-08-05T00:30:12.618+05:30">
+            <cdf12:Benchmark id="xccdf_org.joval_benchmark_generated" style="SCAP_1.3" xml:lang="en">
+              <cdf12:status date="2022-08-05+05:30">draft</cdf12:status>
+              <cdf12:title>DevilsTongue2.xml</cdf12:title>
+              <cdf12:description xml:lang="en">A programmatically-generated XCCDF benchmark constructed from the following documents:
+                <xhtml:ol>
+                  <xhtml:li>DevilsTongue2.xml</xhtml:li>
+                </xhtml:ol>
+              </cdf12:description>
+              <cdf12:version time="2022-08-05T00:30:12.618+05:30" update="https://www.jovalcm.com">0</cdf12:version>
+              <cdf12:metadata>
+                <dc:creator>Joval(tm) SDK 6.4.3 (Engineering Build vebdae8190)</dc:creator>
+                <dc:publisher>YOUR NAME HERE</dc:publisher>
+                <dc:contributor>YOUR NAME HERE</dc:contributor>
+                <dc:source>XML files</dc:source>
+              </cdf12:metadata>
+              <cdf12:model system="urn:xccdf:scoring:default"/>
+              <cdf12:Profile id="xccdf_org.joval_profile_all_rules">
+                <cdf12:title xml:lang="en">Select All Rules</cdf12:title>
+                <cdf12:description xml:lang="en">This profile selects all rules defined in the benchmark.</cdf12:description>
+                <cdf12:select idref="xccdf_org.joval_group_DevilsTongue2.xml" selected="true"/>
+              </cdf12:Profile>
+              <cdf12:Group id="xccdf_org.joval_group_DevilsTongue2.xml" selected="false">
+                <cdf12:title xml:lang="en">DevilsTongue2.xml</cdf12:title>
+                <cdf12:description xml:lang="en">All top-level definitions from DevilsTongue2.xml.</cdf12:description>
+                <cdf12:platform idref="cpe:/o:microsoft:windows"/>
+                <cdf12:Rule id="xccdf_org.joval_rule_DevilsTongue2.xml_0" role="full" severity="unknown" selected="true" weight="1">
+                  <cdf12:title xml:lang="en">Vulnerability: Return of Candiru: 'Devils Tongue'</cdf12:title>
+                  <cdf12:description xml:lang="en">The DevilsTongue malware name are signs of compromise by SOURGUM’s malware given by Microsoft. Microsoft has identified over 100 victims of SOURGUM’s malware, and these victims are as geographically diverse as would be expected when varied government agencies are believed to be selecting the targets. Approximately half of the victims were found in Palestinian Authority, with most of the remaining victims located in Israel, Iran, Lebanon, Yemen, Spain (Catalonia), United Kingdom, Turkey, Armenia, and Singapore</cdf12:description>
+                  <cdf12:ident system="https://decoded.avast.io/janvojtesek/the-return-of-candiru-zero-days-in-the-middle-east/">AVAST</cdf12:ident>
+                  <cdf12:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                    <cdf12:check-content-ref href="DevilsTongue2.xml" name="oval:org.loginsoft.malware:def:2"/>
+                  </cdf12:check>
+                </cdf12:Rule>
+              </cdf12:Group>
+            </cdf12:Benchmark>
+          </ds:component>
+          <ds:component id="scap_org.joval_comp_generator-cpe-dictionary.xml" timestamp="2022-08-05T00:30:12.618+05:30">
+            <cpe-dict:cpe-list>
+              <cpe-dict:cpe-item name="cpe:/o:google:android">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">android</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.android:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:apple:ios">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">apple_ios</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.apple_ios:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:asa">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">asa</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.asa:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:catos">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">catos</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.catos:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:ios">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">ios</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.ios:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:iosxe">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">iosxe</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.iosxe:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:juniper:junos">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">junos</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.junos:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:apple:mac_os_x">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">macos</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.macos:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:nxos">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">nxos</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.nxos:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:cisco:pix">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">pixos</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.pixos:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:undefined">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">undefined</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.undefined:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:unix">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">unix</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.unix:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:vmware:esx">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">vmware_infrastructure</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.vmware_infrastructure:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+              <cpe-dict:cpe-item name="cpe:/o:microsoft:windows">
+                <cpe-dict:references>
+                  <cpe-dict:reference href="family">windows</cpe-dict:reference>
+                </cpe-dict:references>
+                <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="generator-cpe-oval.xml">oval:org.joval.inventory.windows:def:1</cpe-dict:check>
+              </cpe-dict:cpe-item>
+            </cpe-dict:cpe-list>
+          </ds:component>
+          <ds:component id="scap_org.joval_comp_generator-cpe-oval.xml" timestamp="2022-08-05T00:30:12.618+05:30">
+            <oval-def:oval_definitions>
+              <oval-def:generator>
+                <oval:product_name>JovalCM</oval:product_name>
+                <oval:product_version>6.4.3 (Engineering Build vebdae8190)</oval:product_version>
+                <oval:schema_version>5.11.2</oval:schema_version>
+                <oval:timestamp>2022-05-17T13:14:49Z</oval:timestamp>
+              </oval-def:generator>
+              <oval-def:definitions>
+                <oval-def:definition id="oval:org.joval.inventory.android:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>android family</oval-def:title>
+                    <oval-def:affected family="android"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:google:android"/>
+                    <oval-def:description>The target system is part of the android family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.android:tst:1" negate="false" comment="android family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.apple_ios:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>apple_ios family</oval-def:title>
+                    <oval-def:affected family="apple_ios"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:apple:ios"/>
+                    <oval-def:description>The target system is part of the apple_ios family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.apple_ios:tst:1" negate="false" comment="apple_ios family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.asa:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>asa family</oval-def:title>
+                    <oval-def:affected family="asa"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:asa"/>
+                    <oval-def:description>The target system is part of the asa family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.asa:tst:1" negate="false" comment="asa family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.catos:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>catos family</oval-def:title>
+                    <oval-def:affected family="catos"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:catos"/>
+                    <oval-def:description>The target system is part of the catos family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.catos:tst:1" negate="false" comment="catos family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.ios:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>ios family</oval-def:title>
+                    <oval-def:affected family="ios"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:ios"/>
+                    <oval-def:description>The target system is part of the ios family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.ios:tst:1" negate="false" comment="ios family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.iosxe:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>iosxe family</oval-def:title>
+                    <oval-def:affected family="iosxe"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:iosxe"/>
+                    <oval-def:description>The target system is part of the iosxe family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.iosxe:tst:1" negate="false" comment="iosxe family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.junos:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>junos family</oval-def:title>
+                    <oval-def:affected family="junos"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:juniper:junos"/>
+                    <oval-def:description>The target system is part of the junos family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.junos:tst:1" negate="false" comment="junos family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.macos:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>macos family</oval-def:title>
+                    <oval-def:affected family="macos"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:apple:mac_os_x"/>
+                    <oval-def:description>The target system is part of the macos family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.macos:tst:1" negate="false" comment="macos family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.nxos:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>nxos family</oval-def:title>
+                    <oval-def:affected family="nxos"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:nxos"/>
+                    <oval-def:description>The target system is part of the nxos family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.nxos:tst:1" negate="false" comment="nxos family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.pixos:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>pixos family</oval-def:title>
+                    <oval-def:affected family="pixos"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:cisco:pix"/>
+                    <oval-def:description>The target system is part of the pixos family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.pixos:tst:1" negate="false" comment="pixos family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.undefined:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>undefined family</oval-def:title>
+                    <oval-def:affected family="undefined"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:undefined"/>
+                    <oval-def:description>The target system is part of the undefined family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.undefined:tst:1" negate="false" comment="undefined family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.unix:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>unix family</oval-def:title>
+                    <oval-def:affected family="unix"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:unix"/>
+                    <oval-def:description>The target system is part of the unix family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.unix:tst:1" negate="false" comment="unix family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.vmware_infrastructure:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>vmware_infrastructure family</oval-def:title>
+                    <oval-def:affected family="vmware_infrastructure"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:vmware:esx"/>
+                    <oval-def:description>The target system is part of the vmware_infrastructure family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.vmware_infrastructure:tst:1" negate="false" comment="vmware_infrastructure family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.joval.inventory.windows:def:1" version="1" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>windows family</oval-def:title>
+                    <oval-def:affected family="windows"/>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:microsoft:windows"/>
+                    <oval-def:description>The target system is part of the windows family.</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND" negate="false">
+                    <oval-def:criterion test_ref="oval:org.joval.inventory.windows:tst:1" negate="false" comment="windows family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+              </oval-def:definitions>
+              <oval-def:tests>
+                <ind-def:family_test id="oval:org.joval.inventory.android:tst:1" version="1" check="all" comment="android family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.android:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.apple_ios:tst:1" version="1" check="all" comment="apple_ios family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.apple_ios:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.asa:tst:1" version="1" check="all" comment="asa family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.asa:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.catos:tst:1" version="1" check="all" comment="catos family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.catos:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.ios:tst:1" version="1" check="all" comment="ios family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.ios:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.iosxe:tst:1" version="1" check="all" comment="iosxe family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.iosxe:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.junos:tst:1" version="1" check="all" comment="junos family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.junos:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.macos:tst:1" version="1" check="all" comment="macos family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.macos:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.nxos:tst:1" version="1" check="all" comment="nxos family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.nxos:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.pixos:tst:1" version="1" check="all" comment="pixos family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.pixos:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.undefined:tst:1" version="1" check="all" comment="undefined family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.undefined:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.unix:tst:1" version="1" check="all" comment="unix family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.unix:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.vmware_infrastructure:tst:1" version="1" check="all" comment="vmware_infrastructure family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.vmware_infrastructure:ste:1"/>
+                </ind-def:family_test>
+                <ind-def:family_test id="oval:org.joval.inventory.windows:tst:1" version="1" check="all" comment="windows family">
+                  <ind-def:object object_ref="oval:org.joval.inventory:obj:1"/>
+                  <ind-def:state state_ref="oval:org.joval.inventory.windows:ste:1"/>
+                </ind-def:family_test>
+              </oval-def:tests>
+              <oval-def:objects>
+                <ind-def:family_object id="oval:org.joval.inventory:obj:1" version="1" comment="This is the default family object."/>
+              </oval-def:objects>
+              <oval-def:states>
+                <ind-def:family_state id="oval:org.joval.inventory.android:ste:1" version="1" comment="android family">
+                  <ind-def:family check_existence="at_least_one_exists">android</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.apple_ios:ste:1" version="1" comment="apple_ios family">
+                  <ind-def:family check_existence="at_least_one_exists">apple_ios</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.asa:ste:1" version="1" comment="asa family">
+                  <ind-def:family check_existence="at_least_one_exists">asa</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.catos:ste:1" version="1" comment="catos family">
+                  <ind-def:family check_existence="at_least_one_exists">catos</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.ios:ste:1" version="1" comment="ios family">
+                  <ind-def:family check_existence="at_least_one_exists">ios</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.iosxe:ste:1" version="1" comment="iosxe family">
+                  <ind-def:family check_existence="at_least_one_exists">iosxe</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.junos:ste:1" version="1" comment="junos family">
+                  <ind-def:family check_existence="at_least_one_exists">junos</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.macos:ste:1" version="1" comment="macos family">
+                  <ind-def:family check_existence="at_least_one_exists">macos</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.nxos:ste:1" version="1" comment="nxos family">
+                  <ind-def:family check_existence="at_least_one_exists">nxos</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.pixos:ste:1" version="1" comment="pixos family">
+                  <ind-def:family check_existence="at_least_one_exists">pixos</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.undefined:ste:1" version="1" comment="undefined family">
+                  <ind-def:family check_existence="at_least_one_exists">undefined</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.unix:ste:1" version="1" comment="unix family">
+                  <ind-def:family check_existence="at_least_one_exists">unix</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.vmware_infrastructure:ste:1" version="1" comment="vmware_infrastructure family">
+                  <ind-def:family check_existence="at_least_one_exists">vmware_infrastructure</ind-def:family>
+                </ind-def:family_state>
+                <ind-def:family_state id="oval:org.joval.inventory.windows:ste:1" version="1" comment="windows family">
+                  <ind-def:family check_existence="at_least_one_exists">windows</ind-def:family>
+                </ind-def:family_state>
+              </oval-def:states>
+            </oval-def:oval_definitions>
+          </ds:component>
+          <ds:component id="scap_org.joval_comp_DevilsTongue2.xml" timestamp="2022-08-05T00:30:12.618+05:30">
+            <oval-def:oval_definitions>
+              <oval-def:generator>
+                <oval:product_name>Loginsoft Repository</oval:product_name>
+                <oval:schema_version>5.11.2</oval:schema_version>
+                <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+              </oval-def:generator>
+              <oval-def:definitions>
+                <oval-def:definition id="oval:org.loginsoft.windows:def:1000" version="35" class="inventory">
+                  <oval-def:metadata>
+                    <oval-def:title>Microsoft Windows Inventory</oval-def:title>
+                    <oval-def:affected family="windows">
+                      <oval-def:platform>Microsoft Windows</oval-def:platform>
+                    </oval-def:affected>
+                    <oval-def:reference source="CPE" ref_id="cpe:/o:microsoft:windows"/>
+                    <oval-def:description>check for windows family</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria>
+                    <oval-def:criterion test_ref="oval:org.loginsoft.windows:tst:1000" comment="the installed operating system is part of the Microsoft Windows family"/>
+                  </oval-def:criteria>
+                </oval-def:definition>
+                <oval-def:definition id="oval:org.loginsoft.malware:def:2" version="0" class="vulnerability">
+                  <oval-def:metadata>
+                    <oval-def:title>Return of Candiru: 'Devils Tongue'</oval-def:title>
+                    <oval-def:affected family="windows">
+                      <oval-def:platform>Microsoft Windows</oval-def:platform>
+                    </oval-def:affected>
+                    <oval-def:reference source="ThreatReport" ref_id="AVAST" ref_url="https://decoded.avast.io/janvojtesek/the-return-of-candiru-zero-days-in-the-middle-east/"/>
+                    <oval-def:description>The DevilsTongue malware name are signs of compromise by SOURGUM’s malware given by Microsoft. Microsoft has identified over 100 victims of SOURGUM’s malware, and these victims are as geographically diverse as would be expected when varied government agencies are believed to be selecting the targets. Approximately half of the victims were found in Palestinian Authority, with most of the remaining victims located in Israel, Iran, Lebanon, Yemen, Spain (Catalonia), United Kingdom, Turkey, Armenia, and Singapore</oval-def:description>
+                  </oval-def:metadata>
+                  <oval-def:criteria operator="AND">
+                    <oval-def:extend_definition definition_ref="oval:org.loginsoft.windows:def:1000" comment="check if it is Windows OS"/>
+                    <oval-def:criteria operator="OR">
+                      <oval-def:criterion test_ref="oval:org.loginsoft.malware:tst:1000" negate="true" comment="Check hijacked class ids in registry"/>
+                      <oval-def:criterion test_ref="oval:org.mitre.oval.test:tst:1001" comment="SHA-256 value of drivers/HW.sys hash matches with 6a4875ae86131a594019dec4abd46ac6ba47e57a88287b814d07d929858fe3e5 is a good detection of Devils Tongue"/>
+                      <oval-def:criterion test_ref="oval:org.loginsoft.malware:tst:1002" comment="Check for DevilsTongue configuration files in C:\Windows\system32\migration\*.dll"/>
+                      <oval-def:criterion test_ref="oval:org.loginsoft.malware:tst:1003" comment="Check for DevilsTongue configuration files in C:\Windows\system32\ime\.?\*.dll"/>
+                      <oval-def:criterion test_ref="oval:org.loginsoft.malware:tst:1004" comment="Check for DevilsTongue configuration files in C:\Windows\system32\wbem\*.dll"/>
+                      <oval-def:criterion test_ref="oval:org.loginsoft.malware:tst:1005" comment="Check for DevilsTongue configuration files in C:\Windows\system32\drivers\*.dll"/>
+                    </oval-def:criteria>
+                  </oval-def:criteria>
+                </oval-def:definition>
+              </oval-def:definitions>
+              <oval-def:tests>
+                <ind-def:family_test id="oval:org.loginsoft.windows:tst:1000" version="1" check_existence="at_least_one_exists" check="only one" comment="the installed operating system is part of the Microsoft Windows family">
+                  <ind-def:object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+                  <ind-def:state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+                </ind-def:family_test>
+                <win-def:registry_test id="oval:org.loginsoft.malware:tst:1000" version="0" check_existence="at_least_one_exists" check="at least one" comment="Check hijacked class ids in registry">
+                  <win-def:object object_ref="oval:org.loginsoft.malware:obj:1000"/>
+                  <win-def:state state_ref="oval:org.loginsoft.malware:ste:1000"/>
+                </win-def:registry_test>
+                <ind-def:filehash58_test id="oval:org.mitre.oval.test:tst:1001" version="1" check_existence="at_least_one_exists" check="all" comment="SHA-256 value of drivers/HW.sys hash matches with 6a4875ae86131a594019dec4abd46ac6ba47e57a88287b814d07d929858fe3e5 is a good detection of Devils Tongue">
+                  <ind-def:object object_ref="oval:org.loginsoft.malware:obj:1001"/>
+                  <ind-def:state state_ref="oval:org.loginsoft.malware:ste:1001"/>
+                </ind-def:filehash58_test>
+                <win-def:file_test id="oval:org.loginsoft.malware:tst:1002" version="0" check_existence="at_least_one_exists" check="at least one" comment="Check file path C:\Windows\system32\migration\*.dll">
+                  <win-def:object object_ref="oval:org.loginsoft.malware:obj:1002"/>
+                </win-def:file_test>
+                <win-def:file_test id="oval:org.loginsoft.malware:tst:1003" version="0" check_existence="at_least_one_exists" check="at least one" comment="Check file path C:\Windows\system32\ime\.?\*.dll">
+                  <win-def:object object_ref="oval:org.loginsoft.malware:obj:1003"/>
+                </win-def:file_test>
+                <win-def:file_test id="oval:org.loginsoft.malware:tst:1004" version="0" check_existence="at_least_one_exists" check="at least one" comment="Check file path C:\Windows\system32\wbem\*.dll">
+                  <win-def:object object_ref="oval:org.loginsoft.malware:obj:1004"/>
+                </win-def:file_test>
+                <win-def:file_test id="oval:org.loginsoft.malware:tst:1005" version="0" check_existence="at_least_one_exists" check="at least one" comment="Check file path C:\Windows\system32\drivers\*.dll">
+                  <win-def:object object_ref="oval:org.loginsoft.malware:obj:1005"/>
+                </win-def:file_test>
+              </oval-def:tests>
+              <oval-def:objects>
+                <ind-def:family_object id="oval:org.loginsoft.windows:obj:1000" version="1" comment="check if the family is Windows"/>
+                <win-def:registry_object id="oval:org.loginsoft.malware:obj:1000" version="0" comment="Object for Checking hijackable class ids">
+                  <win-def:hive>HKEY_LOCAL_MACHINE</win-def:hive>
+                  <win-def:key var_ref="oval:org.loginsoft.malware:var:1000" var_check="at least one"/>
+                  <win-def:name/>
+                </win-def:registry_object>
+                <ind-def:filehash58_object id="oval:org.loginsoft.malware:obj:1001" version="1" comment="check file hash of HW.sys">
+                  <ind-def:path>C:\Windows\system32\drivers\</ind-def:path>
+                  <ind-def:filename>HW.sys</ind-def:filename>
+                  <ind-def:hash_type>SHA-256</ind-def:hash_type>
+                </ind-def:filehash58_object>
+                <win-def:file_object id="oval:org.loginsoft.malware:obj:1002" version="0" comment="Object for migration file path">
+                  <win-def:path>C:\Windows\System32\migration</win-def:path>
+                  <win-def:filename operation="pattern match" var_ref="oval:org.loginsoft.malware:var:1002" var_check="at least one"/>
+                </win-def:file_object>
+                <win-def:file_object id="oval:org.loginsoft.malware:obj:1003" version="0" comment="Object for ime file path">
+                  <win-def:behaviors max_depth="1" recurse_direction="down"/>
+                  <win-def:path>C:\Windows\System32\ime</win-def:path>
+                  <win-def:filename operation="pattern match" var_ref="oval:org.loginsoft.malware:var:1003" var_check="at least one"/>
+                </win-def:file_object>
+                <win-def:file_object id="oval:org.loginsoft.malware:obj:1004" version="0" comment="Object for wbem file path">
+                  <win-def:path>C:\Windows\System32\wbem</win-def:path>
+                  <win-def:filename operation="pattern match" var_ref="oval:org.loginsoft.malware:var:1004" var_check="at least one"/>
+                </win-def:file_object>
+                <win-def:file_object id="oval:org.loginsoft.malware:obj:1005" version="0" comment="Object for drivers file path">
+                  <win-def:path>C:\Windows\System32\drivers</win-def:path>
+                  <win-def:filename operation="pattern match" var_ref="oval:org.loginsoft.malware:var:1005" var_check="at least one"/>
+                </win-def:file_object>
+              </oval-def:objects>
+              <oval-def:states>
+                <ind-def:family_state id="oval:org.loginsoft.windows:ste:1000" version="1" comment="Microsoft Windows family">
+                  <ind-def:family operation="case insensitive equals">windows</ind-def:family>
+                </ind-def:family_state>
+                <win-def:registry_state id="oval:org.loginsoft.malware:ste:1000" version="0" comment="State for Checking hijackable keys default values">
+                  <win-def:value var_ref="oval:org.loginsoft.malware:var:1001" var_check="at least one"/>
+                </win-def:registry_state>
+                <ind-def:filehash58_state id="oval:org.loginsoft.malware:ste:1001" version="1" comment="checking for HW.sys sha256 hash">
+                  <ind-def:hash>6a4875ae86131a594019dec4abd46ac6ba47e57a88287b814d07d929858fe3e5</ind-def:hash>
+                </ind-def:filehash58_state>
+              </oval-def:states>
+              <oval-def:variables>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1000" version="0" datatype="string" comment="hijackable keys for persistence">
+                  <oval-def:value>SOFTWARE\Classes\CLSID\{4FA18276-912A-11D1-AD9B-00C04FD8FDFF}\InprocServer32</oval-def:value>
+                  <oval-def:value>SOFTWARE\Classes\CLSID\{4590F811-1D3A-11D0-891F-00AA004B2E24}\InprocServer32</oval-def:value>
+                </oval-def:constant_variable>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1001" version="0" datatype="string" comment="registry Key Value contains default values">
+                  <oval-def:value>%systemroot%\system32\wbem\wbemprox.dll</oval-def:value>
+                  <oval-def:value>%systemroot%\system32\wbem\wbemcore.dll</oval-def:value>
+                </oval-def:constant_variable>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1002" version="0" datatype="string" comment="Dll file names in C:\Windows\System32\migration\">
+                  <oval-def:value>netiopmig.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>sppvmig.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>spvmig.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imjprmig.dll(\.inf)?</oval-def:value>
+                </oval-def:constant_variable>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1003" version="0" datatype="string" comment="Dll file names in C:\Windows\System32\ime\">
+                  <oval-def:value>imjpueact.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imjpuexp.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imtcprot.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imccphd.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imebrokev.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imecpmeid.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>imepadsvd.dll(\.inf)?</oval-def:value>
+                </oval-def:constant_variable>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1004" version="0" datatype="string" comment="Dll file names in C:\Windows\System32\wbem\">
+                  <oval-def:value>dmwmibridgeprov132.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>esscli32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>netdacim32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>netpeerdistcim32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>viewprov32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>vsswmi32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>wbemcore32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>wbemdisp32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>wbemsvc32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>wfascim32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>win32_encryptablevolume32.dll(\.inf)?</oval-def:value>
+                  <oval-def:value>wmiaprpl32.dll(\.inf)?</oval-def:value>
+                </oval-def:constant_variable>
+                <oval-def:constant_variable id="oval:org.loginsoft.malware:var:1005" version="0" datatype="string" comment="Dll file names in C:\Windows\System32\drivers\">
+                  <oval-def:value>HW.sys(\.inf)?</oval-def:value>
+                  <oval-def:value>HW.sys.dat(\.inf)?</oval-def:value>
+                </oval-def:constant_variable>
+              </oval-def:variables>
+            </oval-def:oval_definitions>
+          </ds:component>
+        </ds:data-stream-collection>
+      </content>
+    </report-request>
+  </report-requests>
+  <assets>
+    <asset id="asset_0">
+      <ai:computing-device>
+        <ai:cpe>cpe:/o:microsoft:windows</ai:cpe>
+        <ai:connections>
+          <ai:connection>
+            <ai:ip-address>
+              <ai:ip-v6>0:0:0:0:0:0:0:1</ai:ip-v6>
+            </ai:ip-address>
+            <ai:mac-address>00:00:00:00:00:00</ai:mac-address>
+            <ai:subnet-mask>
+              <ai:ip-v6>ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</ai:ip-v6>
+            </ai:subnet-mask>
+          </ai:connection>
+          <ai:connection>
+            <ai:ip-address>
+              <ai:ip-v4>127.0.0.1</ai:ip-v4>
+            </ai:ip-address>
+            <ai:mac-address>00:00:00:00:00:00</ai:mac-address>
+            <ai:subnet-mask>
+              <ai:ip-v4>255.255.255.255</ai:ip-v4>
+            </ai:subnet-mask>
+          </ai:connection>
+          <ai:connection>
+            <ai:ip-address>
+              <ai:ip-v4>192.168.0.187</ai:ip-v4>
+              <ai:ip-v6>fe80:0:0:0:106d:4207:a3db:db07</ai:ip-v6>
+            </ai:ip-address>
+            <ai:mac-address>08:00:27:4E:2E:20</ai:mac-address>
+            <ai:subnet-mask>
+              <ai:ip-v4>255.255.255.255</ai:ip-v4>
+              <ai:ip-v6>ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</ai:ip-v6>
+            </ai:subnet-mask>
+          </ai:connection>
+        </ai:connections>
+        <ai:fqdn>192.168.0.187</ai:fqdn>
+        <ai:hostname>RESEARCH</ai:hostname>
+      </ai:computing-device>
+    </asset>
+  </assets>
+  <reports>
+    <report id="report_2">
+      <content>
+        <oval-res:oval_results>
+          <oval-res:generator>
+            <oval:product_name>Joval(tm) SDK</oval:product_name>
+            <oval:product_version>6.4.3 (Engineering Build vebdae8190)</oval:product_version>
+            <oval:schema_version>5.11.2</oval:schema_version>
+            <oval:timestamp>2022-08-05T00:31:51.515+05:30</oval:timestamp>
+          </oval-res:generator>
+          <oval-res:directives include_source_definitions="false">
+            <oval-res:definition_true reported="true" content="full"/>
+            <oval-res:definition_false reported="true" content="full"/>
+            <oval-res:definition_unknown reported="true" content="full"/>
+            <oval-res:definition_error reported="true" content="full"/>
+            <oval-res:definition_not_evaluated reported="true" content="thin"/>
+            <oval-res:definition_not_applicable reported="true" content="thin"/>
+          </oval-res:directives>
+          <oval-res:results>
+            <oval-res:system>
+              <oval-res:definitions>
+                <oval-res:definition definition_id="oval:org.loginsoft.malware:def:2" version="0" class="vulnerability" result="true">
+                  <oval-res:criteria operator="AND" negate="false" result="true">
+                    <oval-res:extend_definition definition_ref="oval:org.loginsoft.windows:def:1000" version="35" negate="false" result="true"/>
+                    <oval-res:criteria operator="OR" negate="false" result="true">
+                      <oval-res:criterion test_ref="oval:org.loginsoft.malware:tst:1000" version="0" negate="true" result="false"/>
+                      <oval-res:criterion test_ref="oval:org.mitre.oval.test:tst:1001" version="1" negate="false" result="false"/>
+                      <oval-res:criterion test_ref="oval:org.loginsoft.malware:tst:1002" version="0" negate="false" result="false"/>
+                      <oval-res:criterion test_ref="oval:org.loginsoft.malware:tst:1003" version="0" negate="false" result="true"/>
+                      <oval-res:criterion test_ref="oval:org.loginsoft.malware:tst:1004" version="0" negate="false" result="false"/>
+                      <oval-res:criterion test_ref="oval:org.loginsoft.malware:tst:1005" version="0" negate="false" result="false"/>
+                    </oval-res:criteria>
+                  </oval-res:criteria>
+                </oval-res:definition>
+                <oval-res:definition definition_id="oval:org.loginsoft.windows:def:1000" version="35" class="inventory" result="true">
+                  <oval-res:criteria operator="AND" negate="false" result="true">
+                    <oval-res:criterion test_ref="oval:org.loginsoft.windows:tst:1000" version="1" negate="false" result="true"/>
+                  </oval-res:criteria>
+                </oval-res:definition>
+              </oval-res:definitions>
+              <oval-res:tests>
+                <oval-res:test test_id="oval:org.loginsoft.malware:tst:1000" version="0" check_existence="at_least_one_exists" check="at least one" state_operator="AND" result="true">
+                  <oval-res:tested_item item_id="2" result="true"/>
+                  <oval-res:tested_item item_id="3" result="true"/>
+                  <oval-res:tested_variable variable_id="oval:org.loginsoft.malware:var:1001">%systemroot%\system32\wbem\wbemcore.dll</oval-res:tested_variable>
+                  <oval-res:tested_variable variable_id="oval:org.loginsoft.malware:var:1001">%systemroot%\system32\wbem\wbemprox.dll</oval-res:tested_variable>
+                </oval-res:test>
+                <oval-res:test test_id="oval:org.loginsoft.malware:tst:1003" version="0" check_existence="at_least_one_exists" check="at least one" state_operator="AND" result="true">
+                  <oval-res:tested_item item_id="1" result="not evaluated"/>
+                </oval-res:test>
+                <oval-res:test test_id="oval:org.loginsoft.malware:tst:1002" version="0" check_existence="at_least_one_exists" check="at least one" state_operator="AND" result="false"/>
+                <oval-res:test test_id="oval:org.loginsoft.malware:tst:1005" version="0" check_existence="at_least_one_exists" check="at least one" state_operator="AND" result="false"/>
+                <oval-res:test test_id="oval:org.loginsoft.windows:tst:1000" version="1" check_existence="at_least_one_exists" check="only one" state_operator="AND" result="true">
+                  <oval-res:tested_item item_id="0" result="true"/>
+                </oval-res:test>
+                <oval-res:test test_id="oval:org.mitre.oval.test:tst:1001" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" result="false"/>
+                <oval-res:test test_id="oval:org.loginsoft.malware:tst:1004" version="0" check_existence="at_least_one_exists" check="at least one" state_operator="AND" result="false"/>
+              </oval-res:tests>
+              <oval-sc:oval_system_characteristics>
+                <oval-sc:generator>
+                  <oval:product_name>Joval(tm) SDK</oval:product_name>
+                  <oval:product_version>6.4.3 (Engineering Build vebdae8190)</oval:product_version>
+                  <oval:schema_version>5.11.2</oval:schema_version>
+                  <oval:timestamp>2022-08-05T00:30:23.765+05:30</oval:timestamp>
+                </oval-sc:generator>
+                <oval-sc:system_info>
+                  <oval-sc:os_name>Windows 10 Home</oval-sc:os_name>
+                  <oval-sc:os_version>6.3</oval-sc:os_version>
+                  <oval-sc:architecture>AMD64</oval-sc:architecture>
+                  <oval-sc:primary_host_name>RESEARCH</oval-sc:primary_host_name>
+                  <oval-sc:interfaces>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>2407:ff00:12:1d5:106d:4207:a3db:db07</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>2407:ff00:12:1d5:55f7:27c4:c612:7803</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>fe80:0:0:0:106d:4207:a3db:db07</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>192.168.0.187</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Software Loopback Interface 1</oval-sc:interface_name>
+                      <oval-sc:ip_address>0:0:0:0:0:0:0:1</oval-sc:ip_address>
+                      <oval-sc:mac_address/>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Software Loopback Interface 1</oval-sc:interface_name>
+                      <oval-sc:ip_address>127.0.0.1</oval-sc:ip_address>
+                      <oval-sc:mac_address/>
+                    </oval-sc:interface>
+                  </oval-sc:interfaces>
+                  <con:asset-identification>
+                    <object-ref ref-id="asset_0"/>
+                  </con:asset-identification>
+                </oval-sc:system_info>
+                <oval-sc:collected_objects>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1000" version="0" comment="Object for Checking hijackable class ids" flag="complete">
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1000">SOFTWARE\Classes\CLSID\{4590F811-1D3A-11D0-891F-00AA004B2E24}\InprocServer32</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1000">SOFTWARE\Classes\CLSID\{4FA18276-912A-11D1-AD9B-00C04FD8FDFF}\InprocServer32</oval-sc:variable_value>
+                    <oval-sc:reference item_ref="2"/>
+                    <oval-sc:reference item_ref="3"/>
+                  </oval-sc:object>
+                  <oval-sc:object id="oval:org.loginsoft.windows:obj:1000" version="1" comment="check if the family is Windows" flag="complete">
+                    <oval-sc:reference item_ref="0"/>
+                  </oval-sc:object>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1001" version="1" comment="check file hash of HW.sys" flag="does not exist"/>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1002" version="0" comment="Object for migration file path" flag="does not exist">
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1002">spvmig.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1002">netiopmig.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1002">sppvmig.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1002">imjprmig.dll(\.inf)?</oval-sc:variable_value>
+                  </oval-sc:object>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1003" version="0" comment="Object for ime file path" flag="complete">
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imjpueact.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imebrokev.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imepadsvd.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imtcprot.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imjpuexp.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imccphd.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1003">imecpmeid.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:reference item_ref="1"/>
+                  </oval-sc:object>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1004" version="0" comment="Object for wbem file path" flag="does not exist">
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">viewprov32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">wmiaprpl32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">esscli32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">wbemdisp32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">win32_encryptablevolume32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">netpeerdistcim32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">dmwmibridgeprov132.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">wbemcore32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">vsswmi32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">netdacim32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">wbemsvc32.dll(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1004">wfascim32.dll(\.inf)?</oval-sc:variable_value>
+                  </oval-sc:object>
+                  <oval-sc:object id="oval:org.loginsoft.malware:obj:1005" version="0" comment="Object for drivers file path" flag="does not exist">
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1005">HW.sys(\.inf)?</oval-sc:variable_value>
+                    <oval-sc:variable_value variable_id="oval:org.loginsoft.malware:var:1005">HW.sys.dat(\.inf)?</oval-sc:variable_value>
+                  </oval-sc:object>
+                </oval-sc:collected_objects>
+                <oval-sc:system_data>
+                  <ind-sc:family_item id="0">
+                    <ind-sc:family>windows</ind-sc:family>
+                  </ind-sc:family_item>
+                  <win-sc:file_item id="1">
+                    <win-sc:filepath>C:\Windows\System32\IME\SHARED\imjpueact.dll.inf</win-sc:filepath>
+                    <win-sc:path>C:\Windows\System32\IME\SHARED</win-sc:path>
+                    <win-sc:filename>imjpueact.dll.inf</win-sc:filename>
+                    <win-sc:owner>BUILTIN\Administrators</win-sc:owner>
+                    <win-sc:size datatype="int">222008</win-sc:size>
+                    <win-sc:a_time datatype="int">133041131609140000</win-sc:a_time>
+                    <win-sc:c_time datatype="int">133041128562540000</win-sc:c_time>
+                    <win-sc:m_time datatype="int">132201833796640000</win-sc:m_time>
+                    <win-sc:ms_checksum>228797</win-sc:ms_checksum>
+                    <win-sc:version datatype="version">10.0.19041.1</win-sc:version>
+                    <win-sc:type>FILE_TYPE_DISK</win-sc:type>
+                    <win-sc:attribute>FILE_ATTRIBUTE_ARCHIVE</win-sc:attribute>
+                    <win-sc:development_class>WinBuild</win-sc:development_class>
+                    <win-sc:company>Microsoft Corporation</win-sc:company>
+                    <win-sc:internal_name>imecfm.dll</win-sc:internal_name>
+                    <win-sc:language>Language Neutral</win-sc:language>
+                    <win-sc:original_filename>imecfm.dll</win-sc:original_filename>
+                    <win-sc:product_name>Microsoft® Windows® Operating System</win-sc:product_name>
+                    <win-sc:product_version datatype="version">10.0.19041.1</win-sc:product_version>
+                    <win-sc:windows_view>64_bit</win-sc:windows_view>
+                  </win-sc:file_item>
+                  <win-sc:registry_item id="2">
+                    <win-sc:hive>HKEY_LOCAL_MACHINE</win-sc:hive>
+                    <win-sc:key>SOFTWARE\Classes\CLSID\{4FA18276-912A-11D1-AD9B-00C04FD8FDFF}\InprocServer32</win-sc:key>
+                    <win-sc:name/>
+                    <win-sc:last_write_time datatype="int">132201837620512637</win-sc:last_write_time>
+                    <win-sc:type>reg_expand_sz</win-sc:type>
+                    <win-sc:value datatype="string">%systemroot%\system32\wbem\wbemcore.dll</win-sc:value>
+                    <win-sc:expanded_value datatype="string" status="exists">C:\Windows\system32\wbem\wbemcore.dll</win-sc:expanded_value>
+                    <win-sc:windows_view>64_bit</win-sc:windows_view>
+                  </win-sc:registry_item>
+                  <win-sc:registry_item id="3">
+                    <win-sc:hive>HKEY_LOCAL_MACHINE</win-sc:hive>
+                    <win-sc:key>SOFTWARE\Classes\CLSID\{4590F811-1D3A-11D0-891F-00AA004B2E24}\InprocServer32</win-sc:key>
+                    <win-sc:name/>
+                    <win-sc:last_write_time datatype="int">132201837623485077</win-sc:last_write_time>
+                    <win-sc:type>reg_expand_sz</win-sc:type>
+                    <win-sc:value datatype="string">%systemroot%\system32\wbem\wbemprox.dll</win-sc:value>
+                    <win-sc:expanded_value datatype="string" status="exists">C:\Windows\system32\wbem\wbemprox.dll</win-sc:expanded_value>
+                    <win-sc:windows_view>64_bit</win-sc:windows_view>
+                  </win-sc:registry_item>
+                </oval-sc:system_data>
+              </oval-sc:oval_system_characteristics>
+            </oval-res:system>
+          </oval-res:results>
+        </oval-res:oval_results>
+      </content>
+    </report>
+    <report id="report_1">
+      <content>
+        <oval-res:oval_results>
+          <oval-res:generator>
+            <oval:product_name>Joval(tm) SDK</oval:product_name>
+            <oval:product_version>6.4.3 (Engineering Build vebdae8190)</oval:product_version>
+            <oval:schema_version>5.11.2</oval:schema_version>
+            <oval:timestamp>2022-08-05T00:31:51.521+05:30</oval:timestamp>
+          </oval-res:generator>
+          <oval-res:directives include_source_definitions="false">
+            <oval-res:definition_true reported="true" content="full"/>
+            <oval-res:definition_false reported="true" content="full"/>
+            <oval-res:definition_unknown reported="true" content="full"/>
+            <oval-res:definition_error reported="true" content="full"/>
+            <oval-res:definition_not_evaluated reported="true" content="thin"/>
+            <oval-res:definition_not_applicable reported="true" content="thin"/>
+          </oval-res:directives>
+          <oval-res:results>
+            <oval-res:system>
+              <oval-res:definitions>
+                <oval-res:definition definition_id="oval:org.joval.inventory.ios:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.android:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.apple_ios:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.catos:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.vmware_infrastructure:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.nxos:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.asa:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.pixos:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.windows:def:1" version="1" class="inventory" result="true">
+                  <oval-res:criteria operator="AND" negate="false" result="true">
+                    <oval-res:criterion test_ref="oval:org.joval.inventory.windows:tst:1" version="1" negate="false" result="true"/>
+                  </oval-res:criteria>
+                </oval-res:definition>
+                <oval-res:definition definition_id="oval:org.joval.inventory.junos:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.iosxe:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.undefined:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.macos:def:1" version="1" class="inventory" result="not evaluated"/>
+                <oval-res:definition definition_id="oval:org.joval.inventory.unix:def:1" version="1" class="inventory" result="not evaluated"/>
+              </oval-res:definitions>
+              <oval-res:tests>
+                <oval-res:test test_id="oval:org.joval.inventory.windows:tst:1" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" result="true">
+                  <oval-res:tested_item item_id="0" result="true"/>
+                </oval-res:test>
+              </oval-res:tests>
+              <oval-sc:oval_system_characteristics>
+                <oval-sc:generator>
+                  <oval:product_name>Joval(tm) SDK</oval:product_name>
+                  <oval:product_version>6.4.3 (Engineering Build vebdae8190)</oval:product_version>
+                  <oval:schema_version>5.11.2</oval:schema_version>
+                  <oval:timestamp>2022-08-05T00:30:22.862+05:30</oval:timestamp>
+                </oval-sc:generator>
+                <oval-sc:system_info>
+                  <oval-sc:os_name>Windows 10 Home</oval-sc:os_name>
+                  <oval-sc:os_version>6.3</oval-sc:os_version>
+                  <oval-sc:architecture>AMD64</oval-sc:architecture>
+                  <oval-sc:primary_host_name>RESEARCH</oval-sc:primary_host_name>
+                  <oval-sc:interfaces>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>2407:ff00:12:1d5:106d:4207:a3db:db07</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>2407:ff00:12:1d5:55f7:27c4:c612:7803</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>fe80:0:0:0:106d:4207:a3db:db07</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Intel(R) PRO/1000 MT Desktop Adapter</oval-sc:interface_name>
+                      <oval-sc:ip_address>192.168.0.187</oval-sc:ip_address>
+                      <oval-sc:mac_address>08:00:27:4E:2E:20</oval-sc:mac_address>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Software Loopback Interface 1</oval-sc:interface_name>
+                      <oval-sc:ip_address>0:0:0:0:0:0:0:1</oval-sc:ip_address>
+                      <oval-sc:mac_address/>
+                    </oval-sc:interface>
+                    <oval-sc:interface>
+                      <oval-sc:interface_name>Software Loopback Interface 1</oval-sc:interface_name>
+                      <oval-sc:ip_address>127.0.0.1</oval-sc:ip_address>
+                      <oval-sc:mac_address/>
+                    </oval-sc:interface>
+                  </oval-sc:interfaces>
+                  <con:asset-identification>
+                    <object-ref ref-id="asset_0"/>
+                  </con:asset-identification>
+                </oval-sc:system_info>
+                <oval-sc:collected_objects>
+                  <oval-sc:object id="oval:org.joval.inventory:obj:1" version="1" comment="This is the default family object." flag="complete">
+                    <oval-sc:reference item_ref="0"/>
+                  </oval-sc:object>
+                </oval-sc:collected_objects>
+                <oval-sc:system_data>
+                  <ind-sc:family_item id="0">
+                    <ind-sc:family>windows</ind-sc:family>
+                  </ind-sc:family_item>
+                </oval-sc:system_data>
+              </oval-sc:oval_system_characteristics>
+            </oval-res:system>
+          </oval-res:results>
+        </oval-res:oval_results>
+      </content>
+    </report>
+    <report id="report_0">
+      <content>
+        <cdf12:TestResult id="xccdf_org.joval_testresult_generated" start-time="2022-08-05T00:30:22.855+05:30" end-time="2022-08-05T00:31:49.786+05:30" test-system="cpe:/a:farnamhallventures:joval_sdk:6.4.3" version="0">
+          <cdf12:benchmark href="#scap_org.joval_comp_xccdf.xml" id="xccdf_org.joval_benchmark_generated"/>
+          <cdf12:identity authenticated="true" privileged="true">RESEARCH\tanium</cdf12:identity>
+          <cdf12:profile idref="xccdf_org.joval_profile_all_rules"/>
+          <cdf12:target>RESEARCH</cdf12:target>
+          <cdf12:target-address>2407:ff00:12:1d5:106d:4207:a3db:db07</cdf12:target-address>
+          <cdf12:target-address>2407:ff00:12:1d5:55f7:27c4:c612:7803</cdf12:target-address>
+          <cdf12:target-address>fe80:0:0:0:106d:4207:a3db:db07</cdf12:target-address>
+          <cdf12:target-address>192.168.0.187</cdf12:target-address>
+          <cdf12:target-address>0:0:0:0:0:0:0:1</cdf12:target-address>
+          <cdf12:target-address>127.0.0.1</cdf12:target-address>
+          <cdf12:target-facts>
+            <cdf12:fact name="FriendlyName" type="string">192.168.0.187</cdf12:fact>
+          </cdf12:target-facts>
+          <cdf12:target-id-ref system="http://scap.nist.gov/schema/asset-identification/1.1" href="" name="asset_0"/>
+          <cdf12:platform idref="cpe:/o:microsoft:windows"/>
+          <cdf12:rule-result idref="xccdf_org.joval_rule_DevilsTongue2.xml_0" role="full" severity="unknown" weight="1">
+            <cdf12:result>fail</cdf12:result>
+            <cdf12:ident system="https://decoded.avast.io/janvojtesek/the-return-of-candiru-zero-days-in-the-middle-east/">AVAST</cdf12:ident>
+            <cdf12:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" negate="false" selector="" multi-check="false">
+              <cdf12:check-content-ref href="#report_2" name="oval:org.loginsoft.malware:def:2"/>
+            </cdf12:check>
+          </cdf12:rule-result>
+          <cdf12:score system="urn:xccdf:scoring:default" maximum="100.0">0.0</cdf12:score>
+          <cdf12:score system="urn:xccdf:scoring:flat" maximum="1.0">0.0</cdf12:score>
+          <cdf12:score system="urn:xccdf:scoring:flat-unweighted" maximum="1.0">0.0</cdf12:score>
+          <cdf12:score system="urn:xccdf:scoring:absolute" maximum="1.0">0.0</cdf12:score>
+          <cdf12:metadata>
+            <dc:creator>Joval(tm) SDK 6.4.3 (Engineering Build vebdae8190)</dc:creator>
+          </cdf12:metadata>
+        </cdf12:TestResult>
+      </content>
+    </report>
+  </reports>
+</asset-report-collection>

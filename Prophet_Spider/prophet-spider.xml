@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:independent-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:windows-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows windows-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd">
+  <generator>
+    <oval:product_name>Loginsoft Repository</oval:product_name>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2020-12-29T18:04:15.609+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition class="inventory" id="oval:org.loginsoft.windows:def:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <metadata>
+        <title>Microsoft Windows Inventory</title>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="cpe:/o:microsoft:windows" source="CPE"/>
+        <description>check for windows family</description>
+      </metadata>
+      <criteria>
+        <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.loginsoft.windows:tst:1000"/>
+      </criteria>
+    </definition>
+    <definition class="miscellaneous" id="oval:org.loginsoft.malware.prophet_spider:def:20220410" version="1">
+      <metadata>
+        <title>Malware{ProphetSpider-20220410}</title>
+        <description>Prophet Spider is a well-known Initial Access Broker (IAB) group. Prophet Spider’s tradecraft continues to grow while exploiting known web-server vulnerabilities such as Citrix and Log4j. A remote code execution (RCE) vulnerability(CVE-2021-22941) affecting Citrix ShareFile Storage Zones Controller, was used by Prophet Spider to attack a Microsoft Internet Information Services (IIS) web server. The attacker took advantage of the flaw to launch a WebShell that allowed the download of further tools.Prophet Spider also exploits known Log4j vulnerabilities in VMware Horizon (CVE-2021-44228, CVE-2021-45046, CVE-2021-44832). Prophet Spider most typically used encoded PowerShell instructions to download a second-stage payload to the targeted PCs after exploiting the vulnerabilities. The specifics of that payload are determined by the attacker’s motivations and aims, such as crypto mining, ransomware, and extortion.</description>
+        <affected family="windows">
+          <platform>Microsoft Windows</platform>
+        </affected>
+        <reference ref_id="CVE-2021-22941" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-22941" source="NVD"/>
+        <reference ref_id="CVE-2021-44228" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-44228" source="NVD"/>
+        <reference ref_id="CVE-2021-45046" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-45046" source="NVD"/>
+        <reference ref_id="CVE-2021-44832" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-44832" source="NVD"/>
+        <reference ref_id="REF-1" ref_url="https://www.hivepro.com/prophet-spider-exploits-log4j-and-citrix-vulnerabilities-to-deploy-webshells/" source="ThreatReport-1"/>
+        <reference ref_id="REF-2" ref_url="https://www.crowdstrike.com/blog/prophet-spider-exploits-citrix-sharefile/" source="ThreatReport-2"/>
+      </metadata>
+      <criteria operator="AND">
+        <extend_definition comment="check if it is Windows OS" definition_ref="oval:org.loginsoft.windows:def:1000"/>
+        <criteria operator="OR">
+          <criterion comment="Check for ProphetSpider configuration files nssm.exe,xmrig.exe in system32\config\systemprofile\mimu2?\" test_ref="oval:org.loginsoft.malware.prophet_spider:tst:202204101000"/>   
+          <criterion comment="Check for ProphetSpider configuration files winntaa.exe,wget.bin,winn.exe,network02.exe in windows\temp" test_ref="oval:org.loginsoft.malware.prophet_spider:tst:202204101001"/>
+          <criterion comment="Check for ProphetSpider configuration file network02.exe in system32\config\systemprofile\AppData\Roaming\" test_ref="oval:org.loginsoft.malware.prophet_spider:tst:202204101002"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <family_test check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.loginsoft.windows:tst:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <object object_ref="oval:org.loginsoft.windows:obj:1000"/>
+      <state state_ref="oval:org.loginsoft.windows:ste:1000"/>
+    </family_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for ProphetSpider configuration files nssm.exe,xmrig.exe in system32\config\systemprofile\mimu2?\" id="oval:org.loginsoft.malware.prophet_spider:tst:202204101000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.prophet_spider:obj:202204101000"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for ProphetSpider configuration files winntaa.exe,wget.bin,winn.exe,network02.exe in windows\temp" id="oval:org.loginsoft.malware.prophet_spider:tst:202204101001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.prophet_spider:obj:202204101001"/>
+    </file_test>
+    <file_test check="at least one" check_existence="at_least_one_exists" comment="Check for ProphetSpider configuration file network02.exe in system32\config\systemprofile\AppData\Roaming\" id="oval:org.loginsoft.malware.prophet_spider:tst:202204101002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <object object_ref="oval:org.loginsoft.malware.prophet_spider:obj:202204101002"/>
+    </file_test>
+  </tests>
+  <objects>
+    <family_object comment="check if the family is Windows" id="oval:org.loginsoft.windows:obj:1000" version="0" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"/>
+    <file_object comment="Object for nssm.exe,xmrig.exe in system32\config\systemprofile\mimu2?\" id="oval:org.loginsoft.malware.prophet_spider:obj:202204101000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path operation="pattern match">^C:\\Windows\\system32\\config\\systemprofile\\mimu2?$</path>
+      <filename var_check="at least one" var_ref="oval:org.loginsoft.malware.prophet_spider:var:202204101000"/>
+    </file_object>
+    <file_object comment="Object for winntaa.exe,wget.bin,winn.exe,network02.exe in windows\temp" id="oval:org.loginsoft.malware.prophet_spider:obj:202204101001" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path>C:\Windows\temp</path>
+      <filename var_check="at least one" var_ref="oval:org.loginsoft.malware.prophet_spider:var:202204101001"/>
+    </file_object>
+    <file_object comment="Object for network02.exe in system32\config\systemprofile\AppData\Roaming" id="oval:org.loginsoft.malware.prophet_spider:obj:202204101002" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows">
+      <path>C:\Windows\system32\config\systemprofile\AppData\Roaming</path>
+      <filename>network02.exe</filename>
+    </file_object>
+  </objects>
+  <states>
+    <family_state comment="Microsoft Windows family" id="oval:org.loginsoft.windows:ste:1000" version="1" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+      <family operation="case insensitive equals">windows</family>
+    </family_state>
+  </states>
+  <variables>
+    <constant_variable comment="variable holds the filenames nssm.exe,xmrig.exe" datatype="string" id="oval:org.loginsoft.malware.prophet_spider:var:202204101000" version="1">
+      <value>nssm.exe</value>
+      <value>xmrig.exe</value>
+    </constant_variable>
+    <constant_variable comment="variable holds the filenames winntaa.exe,wget.bin,winn.exe,network02.exe" datatype="string" id="oval:org.loginsoft.malware.prophet_spider:var:202204101001" version="1">
+      <value>winntaa.exe</value>
+      <value>wget.bin</value>
+      <value>winn.exe</value>
+      <value>network02.exe</value>
+    </constant_variable>
+  </variables>
+</oval_definitions>

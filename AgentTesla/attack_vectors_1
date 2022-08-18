@@ -1,0 +1,26 @@
+June 28, 2017
+
+HKCU\Software\Microsoft\Office\{word version}\Word\Security\,AccessVBOM, dword, 1
+HKCU\Software\Microsoft\Office\{word version}\Word\Security\,VBAWarning, dword, 1
+
+As you may have realized from the highlighted keywords, this malware is designed to download an executable file and run it by calling the “Shell” function. Indeed, it downloads the file “today.exe” to “%Temp%\javs.exe”, and runs it.
+
+Next, it copies itself from “%temp%\javs.exe” to “%appdata%\Java\JavaUpdtr.exe”. In this way it disguises itself by looking like an update program for Java. It then writes the full path into the value "Software\Microsoft\Windows NT\CurrentVersion\Windows\load" in the system registry so that “JavaUpdtr.exe” can be executed automatically when the system starts.
+
+It also creates a timer whose function is called every 10 minutes.  In the timer function, it captures screenshots of the victim’s screen and then uses the API “Graphics::CopyFromScreen” to grab the screenshots and saves them into the file “%appdata%\ScreenShot\screen.jpeg”. It later encodes the file screen.jpeg with base64 and then sends it to its C&C server using the command “screenshots”
+
+IoC:
+URL:
+
+45.77.35.239/1/today.exe
+
+www.vacanzaimmobiliare.it/testla/WebPanel/post.php
+Sample SHA256:
+
+Yachtworld Invoice Outstanding.doc
+
+1A713E4DDD8B1A6117C10AFE0C45496DFB61154BFF79A6DEE0A9FFB0518F33D3
+
+Javs.exe
+
+5D4E22BE32DCE5474B61E0DF305861F2C07B10DDADBC2DC937481C7D2B736C81

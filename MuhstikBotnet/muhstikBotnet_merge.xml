@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<oval_definitions xmlns:hpux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#hpux" xmlns:linux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:freebsd-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#freebsd" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:nxos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#nxos" xmlns:solaris-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#solaris" xmlns:catos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#catos" xmlns:android-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#android" xmlns:iosxe-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#iosxe" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:apache-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#apache" xmlns:tm="http://scap.nist.gov/schema/xml-dsig/1.0" xmlns:junos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#junos" xmlns:pan-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#panos" xmlns:esx-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#esx" xmlns:joval-meta="http://jovalcm.com/oval/metadata" xmlns:pixos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#pixos" xmlns:sharepoint-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#sharepoint" xmlns:aix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#aix" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:netconf-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#netconf" xmlns:ios-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#ios" xmlns:macos-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#macos" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:asa-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#asa" xmlns:x-net-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#x-protocols" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:x-cmd-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#cmd" xmlns:apple-ios-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#apple_ios" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent">
+  <generator>
+    <oval:product_name>Joval(tm) SDK</oval:product_name>
+    <oval:product_version>6.4.3</oval:product_version>
+    <oval:schema_version>5.11.2</oval:schema_version>
+    <oval:timestamp>2022-08-10T23:07:34.786+05:30</oval:timestamp>
+  </generator>
+  <definitions>
+    <definition id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:def:20210908" version="1" class="miscellaneous" deprecated="false">
+      <metadata>
+        <title>Malware{MuhstikBotnet-20210908}</title>
+        <affected family="unix">
+          <platform>Linux</platform>
+        </affected>
+        <reference source="NVD" ref_id="CVE-2021-26084" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2021-26084"/>
+        <reference source="ThreatReport" ref_id="JUNIPER THREAT" ref_url="https://blogs.juniper.net/en-us/threat-research/muhstik-botnet-targeting-confluence-servers-with-cve-2021-26084"/>
+        <description>Threat Labs is seeing an on-going attack targeting Confluence servers. On August 25, Atlassian, the company behind Confluence, disclosed the vulnerability CVE-2021-26084. A few days after that, several proofs-of-concept to exploit this vulnerability surfaced online, which included an unauthenticated remote code execution (RCE). Along with that, we started seeing an active exploitation of this vulnerability in our telemetry which started on September 02.</description>
+      </metadata>
+      <criteria operator="OR" negate="false">
+        <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081000" negate="false" comment="Check for file hash of dk86 is 0e574fd30e806fe4298b3cbccb8d1089454f42f52892f87554325cb352646049"/>
+        <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081001" negate="false" comment="Check for file hash of dk32 is fe98548300025a46de1e06b94252af601a215b985dad31353596af3c1813efb0"/>
+        <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081002" negate="false" comment="Check for files pty[0-9]+ in /var/tmp, /var/run"/>
+      </criteria>
+    </definition>
+    <definition id="oval:org.loginsoft.linux:def:1000" version="1" class="inventory" deprecated="false">
+      <metadata>
+        <title>Linux inventory</title>
+        <affected family="unix">
+          <platform>Linux</platform>
+        </affected>
+        <reference source="CPE" ref_id="cpe:/o:linux"/>
+        <description>Linux inventory</description>
+      </metadata>
+      <criteria operator="AND" negate="false">
+        <criterion test_ref="oval:org.loginsoft.linux:tst:1000" negate="false" comment="Installed operating system is part of the Linux family"/>
+      </criteria>
+    </definition>
+    <definition id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:def:20220424" version="1" class="miscellaneous" deprecated="false">
+      <metadata>
+        <title>Malware{MuhstikBotnet-20220424}</title>
+        <affected family="unix">
+          <platform>Linux</platform>
+        </affected>
+        <reference source="NVD" ref_id="CVE-2022-0543" ref_url="https://nvd.nist.gov/vuln/detail/CVE-2022-0543"/>
+        <reference source="ThreatReport" ref_id="JUNIPER THREAT" ref_url="https://blogs.juniper.net/en-us/security/muhstik-gang-targets-redis-servers"/>
+        <description>Juniper Threat Labs has uncovered an attack that targets Redis Servers using a recently disclosed vulnerability, namely CVE-2022-0543. This vulnerability exists in some Redis Debian packages. The attack started on March 11, 2022 from the same threat actor we’ve seen targeting confluence servers back in September 2021 and the same group targeting Log4j back in December. The payload used is a variant of Muhstik bot that can be used to launch DDOS attacks</description>
+      </metadata>
+      <criteria operator="AND" negate="false">
+        <extend_definition definition_ref="oval:org.loginsoft.linux:def:1000" negate="false" comment="Linux inventory"/>
+        <criteria operator="OR" negate="false" comment="Check for Malware presence">
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241000" negate="false" comment="Check for file hash of russia.sh is 36a2ac597030f3f3425153f5933adc3ca62259c35f687fde5587b8f5466d7d54"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241001" negate="false" comment="Check for file hash of pty1 is 4817893f8e724cbc5186e17f46d316223b7683dcbc9643e364b5913f8d2a9197"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241002" negate="false" comment="Check for file hash of pty2 is 95d1fca8bea30d9629fdf05e6ba0fc6195eb0a86f99ea021b17cb8823db9d78b"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241003" negate="false" comment="Check for file hash of pty3 is 7d3855bb09f2f6111d6c71e06e1e6b06dd47b1dade49af0235b220966c2f5be3"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241004" negate="false" comment="Check for file hash of pty4 is 16b4093813e2923e9ee70b888f0d50f972ac607253b00f25e4be44993d263bd2"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241005" negate="false" comment="Check for file hash of pty5 is 28443c0a9bfd8a12c12a2aad3cc97d2e8998a9d8825fcf3643d46012f18713f0"/>
+          <criterion test_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241006" negate="false" comment="Check for file hash of pty10 is 46389c117c5f41b60e10f965b3674b3b77189b504b0aeb5c2da67adf55a7129f"/>
+        </criteria>
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081000" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of dk86 is 0e574fd30e806fe4298b3cbccb8d1089454f42f52892f87554325cb352646049" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081000"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:ste:202109081000"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081001" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of dk32 is fe98548300025a46de1e06b94252af601a215b985dad31353596af3c1813efb0" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081001"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:ste:202109081001"/>
+    </ind-def:filehash58_test>
+    <unix-def:file_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:tst:202109081002" version="1" check_existence="at_least_one_exists" check="at least one" state_operator="AND" comment="Check for files pty[0-9]+ in /var/tmp, /var/run" deprecated="false">
+      <unix-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081002"/>
+    </unix-def:file_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241001" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty1 is 4817893f8e724cbc5186e17f46d316223b7683dcbc9643e364b5913f8d2a9197" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241001"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241001"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241002" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty2 is 95d1fca8bea30d9629fdf05e6ba0fc6195eb0a86f99ea021b17cb8823db9d78b" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241002"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241002"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241003" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty3 is 7d3855bb09f2f6111d6c71e06e1e6b06dd47b1dade49af0235b220966c2f5be3" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241003"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241003"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241004" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty4 is 16b4093813e2923e9ee70b888f0d50f972ac607253b00f25e4be44993d263bd2" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241004"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241004"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241000" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of russia.sh is 36a2ac597030f3f3425153f5933adc3ca62259c35f687fde5587b8f5466d7d54" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241000"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241000"/>
+    </ind-def:filehash58_test>
+    <unix-def:uname_test id="oval:org.loginsoft.linux:tst:1000" version="1" check_existence="at_least_one_exists" check="only one" state_operator="AND" comment="Installed operating system is part of the Linux family" deprecated="false">
+      <unix-def:object object_ref="oval:org.loginsoft.linux:obj:1000"/>
+      <unix-def:state state_ref="oval:org.loginsoft.linux:ste:1000"/>
+    </unix-def:uname_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241005" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty5 is 28443c0a9bfd8a12c12a2aad3cc97d2e8998a9d8825fcf3643d46012f18713f0" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241005"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241005"/>
+    </ind-def:filehash58_test>
+    <ind-def:filehash58_test id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:tst:202204241006" version="1" check_existence="at_least_one_exists" check="all" state_operator="AND" comment="Check for file hash of pty10 is 46389c117c5f41b60e10f965b3674b3b77189b504b0aeb5c2da67adf55a7129f" deprecated="false">
+      <ind-def:object object_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241006"/>
+      <ind-def:state state_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241006"/>
+    </ind-def:filehash58_test>
+  </tests>
+  <objects>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081000" version="1" comment="check file hash of /tmp/dk86" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">dk86</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081001" version="1" comment="check file hash of /tmp/dk32" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">dk32</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <unix-def:file_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:obj:202109081002" version="1" comment="Object for pty[0-9]+ file paths" deprecated="false">
+      <unix-def:path datatype="string" operation="equals" mask="false" var_ref="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:var:202109081000" var_check="at least one"/>
+      <unix-def:filename datatype="string" operation="pattern match" mask="false">pty[0-9]+</unix-def:filename>
+    </unix-def:file_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241006" version="1" comment="check file hash of /tmp/pty10" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty10</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <unix-def:uname_object id="oval:org.loginsoft.linux:obj:1000" version="1" comment="Object for linux family" deprecated="false"/>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241005" version="1" comment="check file hash of /tmp/pty5" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty5</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241004" version="1" comment="check file hash of /tmp/pty4" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty4</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241003" version="1" comment="check file hash of /tmp/pty3" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty3</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241002" version="1" comment="check file hash of /tmp/pty2" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty2</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241001" version="1" comment="check file hash of /tmp/pty1" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">pty1</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+    <ind-def:filehash58_object id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:obj:202204241000" version="1" comment="check file hash of /tmp/russ/russia.sh" deprecated="false">
+      <ind-def:path datatype="string" operation="equals" mask="false">/tmp/russ</ind-def:path>
+      <ind-def:filename datatype="string" operation="equals" mask="false">russia.sh</ind-def:filename>
+      <ind-def:hash_type datatype="string" operation="equals" mask="false">SHA-256</ind-def:hash_type>
+    </ind-def:filehash58_object>
+  </objects>
+  <states>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:ste:202109081001" version="1" operator="AND" comment="checking for dk32 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">fe98548300025a46de1e06b94252af601a215b985dad31353596af3c1813efb0</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:ste:202109081000" version="1" operator="AND" comment="checking for dk86 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">0e574fd30e806fe4298b3cbccb8d1089454f42f52892f87554325cb352646049</ind-def:hash>
+    </ind-def:filehash58_state>
+    <unix-def:uname_state id="oval:org.loginsoft.linux:ste:1000" version="1" operator="AND" comment="State for linux family" deprecated="false">
+      <unix-def:os_name entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">Linux</unix-def:os_name>
+    </unix-def:uname_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241006" version="1" operator="AND" comment="checking for pty10 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">46389c117c5f41b60e10f965b3674b3b77189b504b0aeb5c2da67adf55a7129f</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241005" version="1" operator="AND" comment="checking for pty5 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">28443c0a9bfd8a12c12a2aad3cc97d2e8998a9d8825fcf3643d46012f18713f0</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241004" version="1" operator="AND" comment="checking for pty4 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">16b4093813e2923e9ee70b888f0d50f972ac607253b00f25e4be44993d263bd2</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241003" version="1" operator="AND" comment="checking for pty3 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">7d3855bb09f2f6111d6c71e06e1e6b06dd47b1dade49af0235b220966c2f5be3</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241002" version="1" operator="AND" comment="checking for pty2 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">95d1fca8bea30d9629fdf05e6ba0fc6195eb0a86f99ea021b17cb8823db9d78b</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241001" version="1" operator="AND" comment="checking for pty1 sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">4817893f8e724cbc5186e17f46d316223b7683dcbc9643e364b5913f8d2a9197</ind-def:hash>
+    </ind-def:filehash58_state>
+    <ind-def:filehash58_state id="oval:org.loginsoft.malware.linux.muhstik_botnet.redis:ste:202204241000" version="1" operator="AND" comment="checking for russia.sh sha256 hash" deprecated="false">
+      <ind-def:hash entity_check="all" check_existence="at_least_one_exists" datatype="string" operation="equals" mask="false">36a2ac597030f3f3425153f5933adc3ca62259c35f687fde5587b8f5466d7d54</ind-def:hash>
+    </ind-def:filehash58_state>
+  </states>
+  <variables>
+    <constant_variable id="oval:org.loginsoft.malware.linux.muhstik_botnet.confluence:var:202109081000" version="1" datatype="string" comment="file paths for pty[0-9]+" deprecated="false">
+      <value>/var/tmp</value>
+      <value>/var/run</value>
+    </constant_variable>
+  </variables>
+</oval_definitions>

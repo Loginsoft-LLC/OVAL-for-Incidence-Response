@@ -1,0 +1,25 @@
+Ref
+https://www.fortinet.com/blog/threat-research/new-loki-variant-being-spread-via-pdf-file
+https://www.trendmicro.com/en_us/research/18/b/attack-using-windows-installer-msiexec-exe-leads-lokibot.html
+https://www.trendmicro.com/en_us/research/20/b/lokibot-impersonates-popular-game-launcher-and-drops-compiled-c-code-file.html
+
+
+When this malware is executed the very first time, it copies itself to “%AppData%\subfolder”, and renames it as “citrio.exe” in my test enviroment. It then creates a VBS file which can start “citrio.exe”. Figure 3 shows its code. The VBS file is added into the system Start Menu so it can automatically run whenever the system starts. After all these actions are complete, “citrio.exe” is started.
+
+IoC
+
+URL:
+
+"194.88.105.202/~ninjagro/pdfs/QUOTATION.exe"
+
+"online-prodaja.rs/tz/Panel/five/fre.php"
+
+Sample SHA256:
+
+QUOTATION (1).pdf
+
+E71379A53045385C4AC32E5BE75A04E3D2A9FC7B707FB4478CE90FE689F66D19
+
+QUOTATION.exe
+
+FA417E0B42362C40301750809DF9F0C9BDBF333269F50F74832D4F471358AAED
